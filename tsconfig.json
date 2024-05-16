@@ -1,3 +1,10 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": ["@react-native/typescript-config/tsconfig.json", "./tsconfig.paths.json"],
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  }
 }

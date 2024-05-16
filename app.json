@@ -1,4 +1,13 @@
 {
   "name": "whenDo",
-  "displayName": "whenDo"
+  "displayName": "언제할래?",
+  "plugins": [
+    [
+      "@react-native-seoul/kakao-login",
+      {
+        "kakaoAppKey": "686b13e2d48f2fb15632463ac3e0055b",
+        "kotlinVersion": "1.5.10"
+      }
+    ],
+  ]
 }

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "#context/*": ["./src/context/*"],
+      "#atoms/*": ["./src/atoms/*"],
+      "#pages/*": ["./src/pages/*"],
+    },
+  }
+}
