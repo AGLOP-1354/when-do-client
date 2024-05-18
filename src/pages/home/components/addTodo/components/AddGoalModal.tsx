@@ -1,14 +1,13 @@
 import {useCallback, useState} from 'react';
 import { Modal, SafeAreaView, View } from 'react-native';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import uuid from 'react-native-uuid';
+import { useRecoilValue } from 'recoil';
 
 import ModalHeader from '../../../../../context/component/ModalHeader.tsx';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import CustomTextInput from '../../../../../context/component/customFormItems/CustomTextInput.tsx';
 import StartDateSetting from './StartDateSetting.tsx';
-import {goalsAtom} from '../../../../../atoms/goals.ts';
 import ColorSetting from './ColorSetting.tsx';
+import useGoals from '../../../../../hooks/useGoals.ts';
 
 type Props = {
   visible: boolean;
@@ -17,8 +16,7 @@ type Props = {
 
 const AddGoalModal = ({ visible, onClose }: Props) => {
   const colors = useRecoilValue(themeColors);
-  const goals = useRecoilValue(goalsAtom);
-  const setGoals = useSetRecoilState(goalsAtom);
+  const { addGoal } = useGoals();
 
   const [goalTitle, setGoalTitle] = useState('');
   const [startDate, setStartDate] = useState(new Date());
@@ -27,18 +25,14 @@ const AddGoalModal = ({ visible, onClose }: Props) => {
   const onSubmit = useCallback(() => {
     if (!goalTitle) return;
 
-    setGoals([
-      ...goals,
-      {
-        id: uuid.v4() as string,
-        title: goalTitle,
-        isCompleted: false,
-        startDate: startDate,
-        color: goalColor,
-      }
-    ]);
+    addGoal.mutate({
+      title: goalTitle,
+      isCompleted: false,
+      startDate: startDate,
+      color: goalColor,
+    });
     onClose();
-  }, [goalTitle, goalColor, startDate, goals, setGoals, onClose]);
+  }, [goalTitle, addGoal, startDate, goalColor, onClose]);
 
   return (
     <Modal

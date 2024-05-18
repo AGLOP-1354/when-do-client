@@ -7,7 +7,7 @@ import { themeColors } from '../../atoms/theme.ts';
 type Props = {
   title: string;
   onClose: () => void;
-  onSubmit: () => Promise<void>;
+  onSubmit: () => void;
   submitButtonDisabled?: boolean;
 }
 
