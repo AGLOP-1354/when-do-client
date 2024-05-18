@@ -3,9 +3,9 @@ import { atom } from 'recoil';
 export type TodayTodo = {
   id: string;
   title: string;
-  isAlarm: boolean;
+  isAlarm?: boolean;
   alarmTime?: Date;
-  isCompleted: boolean;
+  isCompleted?: boolean;
   startDate: Date;
   goalId?: string;
 }

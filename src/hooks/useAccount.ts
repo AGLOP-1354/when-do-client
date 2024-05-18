@@ -65,7 +65,7 @@ const useAccount = () => {
       setIsLoggedIn(true);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      navigate('홈');
+      navigate('home');
     },
   });
 
@@ -95,7 +95,7 @@ const useAccount = () => {
       setIsLoggedIn(true);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      navigate('홈');
+      navigate('home');
     },
   });
 

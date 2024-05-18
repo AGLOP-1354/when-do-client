@@ -23,11 +23,23 @@ const OAuthButtonList = () => {
     const { createAccount, updateAccount } = useAccount();
 
     const kakaoLoginRequest = async () => {
-        const token = await KakaoLogins.login();
         const profile = await KakaoLogins.getProfile();
 
-        console.log(token);
-        console.log(profile);
+        if (_id) {
+            updateAccount.mutate({
+                socialId: String(profile.id),
+                name: profile.nickname || '',
+                email: profile.email,
+                profileImage: profile.thumbnailImageUrl || '',
+            });
+        }
+
+        createAccount.mutate({
+            socialId: String(profile.id),
+            name: profile.nickname || '',
+            email: profile.email,
+            profileImage: profile.thumbnailImageUrl || '',
+        });
     };
 
     const googleLoginRequest = async () => {

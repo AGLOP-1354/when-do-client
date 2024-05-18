@@ -52,7 +52,7 @@ const Home = () => {
         <View style={{ height: 25 }} />
       </View>
 
-      <TodoList />
+      <TodoList key={`todo-list-${String(selectedWeekDate)}`} />
 
       <DatePickerModal
         visible={datePickerModalVisible}
