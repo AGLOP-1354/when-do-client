@@ -23,7 +23,7 @@ const TodoList = () => {
     <FlatList
       style={{ padding: 15 }}
       data={[TODAY_GOAL, ...parsedGoals]}
-      renderItem={({ item }) => <Goal id={item.id} title={item.title} color={item.color} />}
+      renderItem={({ item }) => <Goal selectedDate={selectedWeekDate} id={item.id} title={item.title} color={item.color} />}
       keyExtractor={(item, idx) => {
         return `${item.id}-${idx}`;
       }}

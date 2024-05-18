@@ -6,12 +6,13 @@ import {useCallback, useState} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import Todo from './Todo.tsx';
+import RoutineSection from './Routine.tsx';
 import { todayTodoListAtom } from '../../../../../atoms/todayTodo.ts';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import CustomTextInput from '../../../../../context/component/customFormItems/CustomTextInput.tsx';
 import {routineAtom} from '../../../../../atoms/routine.ts';
-import useTodayTodo from "../../../../../hooks/useTodayTodo.ts";
-import { accountAtom } from "../../../../../atoms/account.ts";
+import useTodayTodo from '../../../../../hooks/useTodayTodo.ts';
+import dayjs from "dayjs";
 
 const TEMP_TODO = {
   title: '',
@@ -25,15 +26,16 @@ type Props = {
   id: string;
   title: string;
   color: string;
+  selectedDate: dayjs.Dayjs;
 }
 
-const Goal = ({ id, title, color }: Props) => {
+const Goal = ({ id, title, color, selectedDate }: Props) => {
   const colors = useRecoilValue(themeColors);
   const todayTodoList = useRecoilValue(todayTodoListAtom);
   const routineList = useRecoilValue(routineAtom);
   const setTodayTodoList = useSetRecoilState(todayTodoListAtom);
 
-  const { addTodayTodo, addTempTodayTodo } = useTodayTodo();
+  const { addTodayTodo } = useTodayTodo();
 
   const [tempTodoInputVisible, setTempTodoInputVisible] = useState(false);
   const [tempTodoTitle, setTempTodoTitle] = useState('');
@@ -42,8 +44,11 @@ const Goal = ({ id, title, color }: Props) => {
     if (id === 'today_goal' && !goalId) return true;
     return goalId === id;
   });
-
-  const todoListByCurrentGoal = [...filteredTodayTodoList];
+  const filteredRoutineList = routineList.filter(({ goalId, startDate }) => {
+    if (dayjs(selectedDate).isBefore(startDate, 'd')) return false;
+    if (id === 'today_goal' &&!goalId) return true;
+    return goalId === id;
+  });
 
   const onBlurTempTodoTextInput = useCallback(async () => {
     if (tempTodoTitle) {
@@ -118,8 +123,13 @@ const Goal = ({ id, title, color }: Props) => {
       }
 
       <FlatList
-        data={todoListByCurrentGoal}
+        data={filteredTodayTodoList}
         renderItem={({ item }) => <Todo todo={item} color={color} />}
+      />
+
+      <FlatList
+        data={filteredRoutineList}
+        renderItem={({ item }) => <RoutineSection routine={item} color={color} />}
       />
 
       <View style={{ height: 20 }} />

@@ -4,10 +4,12 @@ import dayjs from 'dayjs';
 
 import useTodayTodo from './useTodayTodo.ts';
 import useGoals from './useGoals.ts';
+import useRoutine from './useRoutine.ts';
 
 const useSplashScreen = () => {
   const { initTempTodayTodo } = useTodayTodo();
   useGoals();
+  useRoutine();
 
   useEffect(() => {
     const today = dayjs();

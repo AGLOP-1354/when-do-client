@@ -1,17 +1,16 @@
 import {useCallback, useState} from 'react';
 import { Modal, SafeAreaView, View } from 'react-native';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import uuid from 'react-native-uuid';
+import { useRecoilValue } from 'recoil';
 
 import ModalHeader from '../../../../../context/component/ModalHeader.tsx';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import CustomTextInput from '../../../../../context/component/customFormItems/CustomTextInput.tsx';
 import AlarmSetting from './AlarmSetting.tsx';
 import StartDateSetting from './StartDateSetting.tsx';
-import { routineAtom } from '../../../../../atoms/routine.ts';
 import GoalSelectSection from './GoalSelectSection.tsx';
 import RepeatDayOfWeekSelector from './RepeatDayOfWeekSelector.tsx';
 import { DAY_OF_WEEK } from '../constants';
+import useRoutine from '../../../../../hooks/useRoutine.ts';
 
 type Props = {
   visible: boolean;
@@ -20,8 +19,8 @@ type Props = {
 
 const AddRoutineModal = ({ visible, onClose }: Props) => {
   const colors = useRecoilValue(themeColors);
-  const routineList = useRecoilValue(routineAtom);
-  const setRoutineList = useSetRecoilState(routineAtom);
+
+  const { addRoutine } = useRoutine();
 
   const [todo, setTodo] = useState('');
   const [startDate, setStartDate] = useState(new Date());
@@ -51,20 +50,17 @@ const AddRoutineModal = ({ visible, onClose }: Props) => {
   const onSubmit = useCallback(() => {
     if (!todo) return;
 
-    setRoutineList([
-      ...routineList,
-      {
-        id: uuid.v4() as string,
-        title: todo,
-        isAlarm: alarmInfo.isAlarm,
-        alarmTime: alarmInfo.isAlarm? alarmInfo.time : undefined,
-        repeatDayOfWeek,
-        startDate: startDate,
-        goalId,
-      }
-    ]);
+
+    addRoutine.mutate({
+      title: todo,
+      isAlarm: alarmInfo.isAlarm,
+      alarmTime: alarmInfo.isAlarm? alarmInfo.time : undefined,
+      repeatDayOfWeek,
+      startDate: startDate,
+      goalId,
+    });
     onClose();
-  }, [goalId, todo, alarmInfo.isAlarm, alarmInfo.time, startDate, setRoutineList, routineList, onClose, repeatDayOfWeek]);
+  }, [todo, addRoutine, alarmInfo.isAlarm, alarmInfo.time, repeatDayOfWeek, startDate, goalId, onClose]);
 
   return (
     <Modal
