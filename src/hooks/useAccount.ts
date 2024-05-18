@@ -26,6 +26,22 @@ type AccountInfoResponse = {
     profileImage?: string;
     updatedAt: Date;
     createdAt: Date;
+    deletedAt?: Date;
+  }
+}
+
+type CreateAccountResponse = {
+  data: {
+    __v: number;
+    _id: string;
+    userId: string;
+    name: string;
+    email: string;
+    profileImage?: string;
+    description?: string;
+    updatedAt: Date;
+    createdAt: Date;
+    deletedAt?: Date;
   }
 }
 
@@ -83,9 +99,9 @@ const useAccount = () => {
             email,
             profileImage,
           },
-        });
+        }) as CreateAccountResponse;
 
-        await AsyncStorage.setItem(USER_ID, userId);
+        await AsyncStorage.setItem(USER_ID, result.data.userId);
         return result;
       } catch (error) {
         console.log(error);
@@ -120,8 +136,9 @@ const useAccount = () => {
             description,
             profileImage,
           },
-        });
+        }) as CreateAccountResponse;
 
+        await AsyncStorage.setItem(USER_ID, result.data.userId);
         return result;
       } catch (error) {
         console.log(error);
@@ -158,6 +175,39 @@ const useAccount = () => {
     },
   });
 
+  const deleteAccount = useMutation({
+    mutationFn: async () => {
+      const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
+
+      try {
+        await kyFetch({
+          method: 'POST',
+          url: '/account/logout',
+          data: {
+            userId: asyncStoragePersonId,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    onSuccess: async () => {
+      await AsyncStorage.removeItem(USER_ID);
+      setIsLoggedIn(false);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      navigate('home');
+    }
+  });
+
+  const logout = async () => {
+    await AsyncStorage.removeItem(USER_ID);
+    setIsLoggedIn(false);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    navigate('home');
+  };
+
   return {
     isLoggedIn,
     createAccount,
@@ -166,6 +216,8 @@ const useAccount = () => {
     accountInfoFromDatabase,
     createTempAccount,
     updateAccount,
+    logout,
+    deleteAccount,
   };
 };
 

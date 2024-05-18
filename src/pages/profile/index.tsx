@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useCallback, useEffect, useState } from "react";
-import { View} from 'react-native';
+import { View } from "react-native";
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useRecoilValue } from 'recoil';
 
@@ -14,13 +14,13 @@ import InduceLoginSection from "./components/profileSettingModal/components/Indu
 import {themeColors} from "../../atoms/theme.ts";
 import ThemeSwitch from "./components/ThemeSwitch.tsx";
 import useAccount from "../../hooks/useAccount.ts";
+import LogoutButton from "./components/LogoutButton.tsx";
 
 const Profile = () => {
   const {
     _id,
     socialId,
     name,
-    email,
     description,
     profileImage,
   } = useRecoilValue(accountAtom);
@@ -107,6 +107,12 @@ const Profile = () => {
       {
         socialId ? <View /> : (
             <InduceLoginSection showSignUpModal={() => setSignUpModalVisible(true)} />
+        )
+      }
+
+      {
+        socialId && (
+          <LogoutButton />
         )
       }
     </View>
