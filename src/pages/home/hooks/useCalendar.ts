@@ -20,8 +20,6 @@ export const useCalendar = (): {
   subtractOneMonth: () => void;
   addOneMonth: () => void;
 } => {
-  const { initTempTodayTodo } = useTodayTodo();
-
   const [{ selectedWeekDate, weekDates }, setWeekCalendarState] = useRecoilState(weekCalendarState);
   const [{ selectedDate, dates }, setCalendarState] = useRecoilState(calendarState);
   const [datePickerModalVisible, setDatePickerModalVisible] = useState(false);
@@ -47,9 +45,8 @@ export const useCalendar = (): {
       selectedWeekDate: date,
       weekDates: getWeekCalendarColumns(date),
     });
-    void initTempTodayTodo(date);
     setDatePickerModalVisible(false);
-  }, [initTempTodayTodo, setWeekCalendarState]);
+  }, [ setWeekCalendarState]);
 
   const subtractOneMonth = useCallback(() => {
     const newSelectedDate = dayjs(selectedDate).subtract(1, 'week');

@@ -6,7 +6,7 @@ export type TodayTodo = {
   isAlarm?: boolean;
   alarmTime?: Date;
   isCompleted?: boolean;
-  startDate: Date;
+  startDate?: Date;
   goalId?: string;
 }
 

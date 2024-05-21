@@ -15,22 +15,51 @@ import { accountAtom } from '../../../../../atoms/account.ts';
 type Props = {
   visible: boolean;
   onClose: () => void;
+  id?: string;
+  defaultTitle?: string;
+  defaultIsAlarm?: boolean;
+  defaultAlarmTime?: Date;
+  defaultStartDate?: Date;
+  defaultGoalId?: string;
 }
 
-const AddTodayTodoModal = ({ visible, onClose }: Props) => {
+const TodayTodoSettingModal = ({
+  visible,
+  onClose,
+  id,
+  defaultTitle,
+  defaultIsAlarm,
+  defaultAlarmTime,
+  defaultStartDate,
+  defaultGoalId,
+}: Props) => {
   const colors = useRecoilValue(themeColors);
-  const { addTodayTodo } = useTodayTodo();
+  const { addTodayTodo, updateTodayTodo } = useTodayTodo();
 
-  const [todo, setTodo] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
-  const [goalId, setGoalId] = useState('');
+  const [todo, setTodo] = useState(defaultTitle || '');
+  const [startDate, setStartDate] = useState(defaultStartDate || new Date());
+  const [goalId, setGoalId] = useState(defaultGoalId || '');
   const [alarmInfo, setAlarmInfo] = useState({
-    isAlarm: false,
-    time: new Date(),
+    isAlarm: defaultIsAlarm || false,
+    time: defaultAlarmTime || new Date(),
   });
 
   const onSubmit = useCallback(async () => {
     if (!todo) return;
+
+    if (id) {
+      updateTodayTodo.mutate({
+        id,
+        title: todo,
+        isAlarm: alarmInfo.isAlarm,
+        alarmTime: alarmInfo.isAlarm? alarmInfo.time : undefined,
+        isCompleted: false,
+        startDate,
+        goalId,
+      });
+      onClose();
+      return;
+    }
 
     await addTodayTodo({
       title: todo,
@@ -40,7 +69,7 @@ const AddTodayTodoModal = ({ visible, onClose }: Props) => {
       goalId,
       onSuccessCallback: onClose,
     });
-  }, [goalId, todo, startDate, onClose, addTodayTodo, alarmInfo]);
+  }, [id, goalId, todo, startDate, onClose, addTodayTodo, alarmInfo]);
 
   return (
     <Modal
@@ -72,7 +101,7 @@ const AddTodayTodoModal = ({ visible, onClose }: Props) => {
 
           <View style={{ height: 20 }} />
 
-          <StartDateSetting value={startDate} onChange={setStartDate} />
+          <StartDateSetting value={new Date(startDate)} onChange={setStartDate} />
 
           <View style={{ height: 20 }} />
 
@@ -83,4 +112,4 @@ const AddTodayTodoModal = ({ visible, onClose }: Props) => {
   );
 };
 
-export default AddTodayTodoModal;
+export default TodayTodoSettingModal;

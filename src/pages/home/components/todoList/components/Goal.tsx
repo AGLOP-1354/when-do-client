@@ -7,7 +7,7 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import Todo from './Todo.tsx';
 import RoutineSection from './Routine.tsx';
-import { todayTodoListAtom } from '../../../../../atoms/todayTodo.ts';
+import { TodayTodo, todayTodoListAtom } from "../../../../../atoms/todayTodo.ts";
 import { themeColors } from '../../../../../atoms/theme.ts';
 import CustomTextInput from '../../../../../context/component/customFormItems/CustomTextInput.tsx';
 import {routineAtom} from '../../../../../atoms/routine.ts';
@@ -32,9 +32,10 @@ type Props = {
   color: string;
   startDate?: Date;
   selectedDate: dayjs.Dayjs;
+  setSelectedTodayTodo: (todo: TodayTodo) => void;
 }
 
-const Goal = ({ id, title, color, startDate, selectedDate }: Props) => {
+const Goal = ({ id, title, color, startDate, selectedDate, setSelectedTodayTodo }: Props) => {
   const colors = useRecoilValue(themeColors);
   const todayTodoList = useRecoilValue(todayTodoListAtom);
   const routineList = useRecoilValue(routineAtom);
@@ -146,7 +147,7 @@ const Goal = ({ id, title, color, startDate, selectedDate }: Props) => {
 
         <FlatList
           data={filteredTodayTodoList}
-          renderItem={({ item }) => <Todo todo={item} color={color} />}
+          renderItem={({ item }) => <Todo todo={item} color={color} setSelectedTodayTodo={setSelectedTodayTodo} />}
         />
 
         <FlatList

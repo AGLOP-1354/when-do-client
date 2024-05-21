@@ -6,11 +6,13 @@ import { Menu, Divider } from 'react-native-paper';
 
 import { TODO_LIST_BY_TYPES, TODO_TYPE } from './constants';
 import { themeColors } from '../../../../atoms/theme.ts';
-import AddTodayTodoModal from './components/AddTodayTodoModal.tsx';
+import TodayTodoSettingModal from './components/TodayTodoSettingModal.tsx';
 import GoalSettingModal from './components/GoalSettingModal.tsx';
 import AddRoutineModal from './components/AddRoutineModal.tsx';
+import { weekCalendarState } from "../../../../atoms/calendar.ts";
 
 const AddTodo = () => {
+  const { selectedWeekDate } = useRecoilValue(weekCalendarState);
   const colors = useRecoilValue(themeColors);
 
   const [menuVisible, setMenuVisible] = useState(false);
@@ -100,10 +102,11 @@ const AddTodo = () => {
         }
     </Menu>
 
-    <AddTodayTodoModal
+    <TodayTodoSettingModal
       key={`add-today-todo-modal-${addTodayTodoModalVisible}`}
       visible={addTodayTodoModalVisible}
       onClose={closeAddTodayTodoModal}
+      defaultStartDate={new Date(String(selectedWeekDate))}
     />
 
     <GoalSettingModal

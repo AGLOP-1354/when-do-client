@@ -1,18 +1,23 @@
 import { useCallback } from 'react';
-import { Alert } from 'react-native';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import dayjs from 'dayjs';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { TodayTodo, todayTodoListAtom } from '../atoms/todayTodo.ts';
 import useFetch from './useFetch.ts';
-import { getItem, setItem } from '../context/utils/asyncStorage.ts';
-import {  weekCalendarState } from '../atoms/calendar.ts';
+import { weekCalendarState } from '../atoms/calendar.ts';
 
-type AddTodayTodoParams = TodayTodo & {
-  onSuccessCallback?: () => void,
+type UpdateTodayTodoParams = {
+  id: string;
+  title?: string;
+  isAlarm?: boolean;
+  alarmTime?: Date;
+  isCompleted?: boolean;
+  startDate?: Date;
+  goalId?: string;
 }
+
 type TodayTodoListResponse = {
   data: {
     __v: number;
@@ -32,7 +37,6 @@ type TodayTodoListResponse = {
 const USER_ID = 'userId';
 
 const useTodayTodo = () => {
-  const todayTodoList = useRecoilValue(todayTodoListAtom);
   const { selectedWeekDate } = useRecoilValue(weekCalendarState);
   const setTodayTodoList = useSetRecoilState(todayTodoListAtom);
 
@@ -40,6 +44,7 @@ const useTodayTodo = () => {
 
   const {
     data: todayTodoListFromDatabase = [],
+    refetch: refetchTodayTodoList,
     isLoading: isFetchTodayTodoListLoading,
   } = useQuery({
     queryKey: ['today-todo-list', selectedWeekDate],
@@ -83,38 +88,6 @@ const useTodayTodo = () => {
     }
   });
 
-  const addTempTodayTodo = useCallback(async ({
-    id,
-    title,
-    isAlarm,
-    alarmTime,
-    startDate,
-    goalId,
-    isCompleted,
-    onSuccessCallback = () => {},
-  }: AddTodayTodoParams) => {
-    const newTodayTodo = [
-      ...todayTodoList,
-      {
-        id,
-        title,
-        isAlarm,
-        alarmTime,
-        isCompleted,
-        startDate,
-        goalId,
-      }
-    ];
-    if (newTodayTodo.length > 3) {
-      Alert.alert('추가로 일정을 등록하려면 로그인 해주세요.');
-      return;
-    }
-
-    setTodayTodoList(newTodayTodo);
-    await setItem('tempTodayTodo', JSON.stringify(newTodayTodo));
-    onSuccessCallback();
-  }, [todayTodoList, setTodayTodoList]);
-
   const addTodayTodo = useCallback(async ({
     title,
     isAlarm,
@@ -152,27 +125,73 @@ const useTodayTodo = () => {
     onSuccessCallback();
   }, [kyFetchWithUserId, setTodayTodoList]);
 
+  const updateTodayTodo = useMutation({
+    mutationFn: async ({
+      id,
+      title,
+      isAlarm,
+      alarmTime,
+      isCompleted,
+      goalId,
+    }: UpdateTodayTodoParams) => {
+      try {
+        const result = await kyFetchWithUserId({
+          method: 'POST',
+          url: '/today-todo/update',
+          data: {
+            id,
+            title,
+            isAlarm,
+            alarmTime,
+            isCompleted,
+            goalId,
+          }
+        });
+
+        return result;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    onSuccess: async () => {
+      await refetchTodayTodoList();
+    }
+  });
+
+  const deleteTodayTodo = useMutation({
+    mutationFn: async ({ id }: { id: string }) => {
+      try {
+        const result = await kyFetchWithUserId({
+          method: 'POST',
+          url: '/today-todo/delete',
+          data: {
+            id,
+          }
+        });
+
+        return result;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    onSuccess: async () => {
+      await refetchTodayTodoList();
+    }
+  });
+
   const setTodayTodoBySelectedDate = useCallback((date: dayjs.Dayjs, tempTodayTodo: TodayTodo[]) => {
     setTodayTodoList(tempTodayTodo.filter(({ startDate }) => (
       dayjs(startDate).isSame(date, 'day')
     )));
   }, [setTodayTodoList]);
 
-  const initTempTodayTodo = useCallback(async (date: dayjs.Dayjs) => {
-    const tempTodayTodo = await getItem('tempTodayTodo');
-    if (!tempTodayTodo) return;
-
-    const parsedTempTodayTodo = JSON.parse(tempTodayTodo) as TodayTodo[];
-    setTodayTodoBySelectedDate(date, parsedTempTodayTodo);
-  }, [setTodayTodoBySelectedDate]);
-
   return {
     addTodayTodo,
-    addTempTodayTodo,
     setTodayTodoBySelectedDate,
-    initTempTodayTodo,
     todayTodoListFromDatabase,
     isFetchTodayTodoListLoading,
+    updateTodayTodo,
+    deleteTodayTodo,
   };
 };
 
