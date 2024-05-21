@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
 import { useRecoilValue } from 'recoil';
 import { Menu, Divider } from 'react-native-paper';
 
 import { TODO_LIST_BY_TYPES, TODO_TYPE } from './constants';
 import { themeColors } from '../../../../atoms/theme.ts';
 import AddTodayTodoModal from './components/AddTodayTodoModal.tsx';
-import AddGoalModal from './components/AddGoalModal.tsx';
+import GoalSettingModal from './components/GoalSettingModal.tsx';
 import AddRoutineModal from './components/AddRoutineModal.tsx';
 
 const AddTodo = () => {
@@ -67,8 +67,8 @@ const AddTodo = () => {
           backgroundColor: 'transparent'
         }}
         anchor={(
-          <Pressable onPress={() => setMenuVisible(true)} style={{ borderWidth: 1.5, borderColor: colors.font100, padding: 2, borderRadius: 50 }}>
-          <FeatherIcon name="more-horizontal" size={14} color={colors.font100} />
+          <Pressable onPress={() => setMenuVisible(true)}>
+            <EntypoIcon name="plus" size={20} color={colors.font100} />
           </Pressable>
         )}
       >
@@ -84,10 +84,10 @@ const AddTodo = () => {
                     width: 125,
                     height: 40,
                     backgroundColor: colors.backgroundColor300,
-                    borderTopStartRadius: isFirstItem ? 4 : 0,
-                    borderTopEndRadius: isFirstItem ? 4 : 0,
-                    borderEndStartRadius: isLastItem ? 4 : 0,
-                    borderEndEndRadius: isLastItem ? 4 : 0,
+                    borderTopStartRadius: isFirstItem ? 12 : 0,
+                    borderTopEndRadius: isFirstItem ? 12 : 0,
+                    borderEndStartRadius: isLastItem ? 12 : 0,
+                    borderEndEndRadius: isLastItem ? 12 : 0,
                   }}
                   titleStyle={{ color: colors.font100, fontWeight: '600', fontSize: 14 }}
                   onPress={() => onClickMenu(key)}
@@ -106,7 +106,7 @@ const AddTodo = () => {
       onClose={closeAddTodayTodoModal}
     />
 
-    <AddGoalModal
+    <GoalSettingModal
       key={`add-goal-modal-${addGoalModalVisible}`}
       visible={addGoalModalVisible}
       onClose={closeAddGoalModal}

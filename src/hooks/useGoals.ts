@@ -14,6 +14,14 @@ type AddGoalParams = {
   startDate: Date;
   color?: string;
 };
+type UpdateGoalParams = {
+  id: string;
+  title?: string;
+  isCompleted?: boolean;
+  startDate?: Date;
+  endDate?: Date;
+  color?: string;
+}
 
 type AddGoalResponse = {
   data: {
@@ -110,10 +118,44 @@ const useGoals = () => {
     },
   });
 
+  const updateGoal = useMutation({
+    mutationFn: async ({
+      id,
+      title,
+      isCompleted,
+      startDate,
+      endDate,
+      color,
+    }: UpdateGoalParams) => {
+      try {
+        const result = await kyFetchWithUserId({
+          method: 'POST',
+          url: '/goal/update',
+          data: {
+            id,
+            title,
+            isCompleted,
+            startDate,
+            endDate,
+            color,
+          }
+        });
+
+        return result;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    onSuccess: async () => {
+      await refetchGoalList();
+    },
+  })
+
   return {
     goalListFromDatabase,
     isFetchGoalListLoading,
     addGoal,
+    updateGoal,
   };
 };
 

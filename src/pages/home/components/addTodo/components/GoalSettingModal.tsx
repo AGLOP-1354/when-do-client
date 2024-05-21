@@ -12,18 +12,41 @@ import useGoals from '../../../../../hooks/useGoals.ts';
 type Props = {
   visible: boolean;
   onClose: () => void;
+  defaultTitle?: string;
+  defaultStartDate?: Date;
+  defaultGoalColor?: string;
+  id?: string;
 }
 
-const AddGoalModal = ({ visible, onClose }: Props) => {
+const GoalSettingModal = ({
+  visible,
+  onClose,
+  defaultTitle,
+  defaultStartDate,
+  defaultGoalColor,
+  id,
+}: Props) => {
   const colors = useRecoilValue(themeColors);
-  const { addGoal } = useGoals();
+  const { addGoal, updateGoal } = useGoals();
 
-  const [goalTitle, setGoalTitle] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
-  const [goalColor, setGoalColor] = useState('gray');
+  const [goalTitle, setGoalTitle] = useState(defaultTitle || '');
+  const [startDate, setStartDate] = useState(defaultStartDate || new Date());
+  const [goalColor, setGoalColor] = useState(defaultGoalColor || 'gray');
 
   const onSubmit = useCallback(() => {
     if (!goalTitle) return;
+
+    if (id) {
+      updateGoal.mutate({
+        id,
+        title: goalTitle,
+        isCompleted: false,
+        startDate: startDate,
+        color: goalColor,
+      });
+      onClose();
+      return;
+    }
 
     addGoal.mutate({
       title: goalTitle,
@@ -60,7 +83,7 @@ const AddGoalModal = ({ visible, onClose }: Props) => {
 
           <View style={{ height: 20 }}  />
 
-          <StartDateSetting value={startDate} onChange={setStartDate} />
+          <StartDateSetting value={new Date(startDate)} onChange={setStartDate} />
 
           <View style={{ height: 20 }}  />
 
@@ -71,4 +94,4 @@ const AddGoalModal = ({ visible, onClose }: Props) => {
   );
 };
 
-export default AddGoalModal;
+export default GoalSettingModal;

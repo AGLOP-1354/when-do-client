@@ -1,10 +1,11 @@
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {useState} from 'react';
 import {useRecoilValue} from 'recoil';
 
 import ColorPicker from '../../../../../context/component/colorPicker';
 import {themeColors} from '../../../../../atoms/theme.ts';
 import Box from '../../../../../context/component/Box.tsx';
+import CustomText from '../../../../../context/component/CustomText.tsx';
 
 type Props = {
   defaultValue: string;
@@ -19,7 +20,7 @@ const ColorSetting = ({ defaultValue, onConfirm }: Props) => {
   return (
     <Box>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 8 }}>
-        <Text style={{ color: colors.font100 }}>색상</Text>
+        <CustomText style={{ color: colors.font100 }}>색상</CustomText>
 
         <Pressable onPress={() => setColorPickerVisible(true)}>
           <View style={{ backgroundColor: defaultValue, width: 20, height: 20, borderRadius: 50 }} />

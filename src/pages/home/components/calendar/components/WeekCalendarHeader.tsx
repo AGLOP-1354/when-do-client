@@ -1,12 +1,13 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { useRecoilValue } from 'recoil';
 import FontistoIcon from 'react-native-vector-icons/Fontisto';
 
 import ArrowButton from './ArrowButton';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import AddTodoButton from '../../addTodo';
+import CustomText from '../../../../../context/component/CustomText.tsx';
 
 type Props = {
   selectedDate: dayjs.Dayjs;
@@ -30,7 +31,7 @@ const WeekCalendarHeader = ({
       <Pressable onPress={onOpenDatePickerModal}>
         <View style={{ gap: 8, flexDirection: 'row', alignItems: 'center' }}>
           <FontistoIcon name="date" size={16} color={colors.font100} />
-          <Text style={{ fontSize: 16, color: colors.font100, fontWeight: 'bold' }}>{currentDataText}</Text>
+          <CustomText style={{ fontSize: 16, color: colors.font100, fontWeight: 'bold' }}>{currentDataText}</CustomText>
         </View>
       </Pressable>
 

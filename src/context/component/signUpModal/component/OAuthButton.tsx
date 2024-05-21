@@ -1,7 +1,8 @@
 import React, {ReactNode} from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable } from 'react-native';
 
 import { OauthInfo, PROVIDERS } from '../constants';
+import CustomText from '../../CustomText.tsx';
 
 interface OauthButtonProps extends OauthInfo {
     onPress?: () => Promise<void>;
@@ -42,7 +43,7 @@ const OAuthButton = ({ onPress, icon, provider, textColor, backgroundColor, bord
             onPress={onPress}
         >
             {icon}
-            <Text
+            <CustomText
                 style={{
                     color: textColor,
                     fontSize: 16,
@@ -50,7 +51,7 @@ const OAuthButton = ({ onPress, icon, provider, textColor, backgroundColor, bord
                 }}
             >
                 {convertProvider(provider)}로 시작하기
-            </Text>
+            </CustomText>
         </Pressable>
     );
 };

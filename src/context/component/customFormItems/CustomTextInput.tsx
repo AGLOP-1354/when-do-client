@@ -1,6 +1,7 @@
-import { View, Text, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 import { useRecoilValue } from 'recoil';
 import { themeColors } from '../../../atoms/theme.ts';
+import CustomText from '../CustomText.tsx';
 
 type Props = {
   defaultValue: string;
@@ -41,14 +42,14 @@ const CustomTextInput = ({
     >
       {
         prefix && (
-          <Text
+          <CustomText
             style={{
               width: 80,
               color: disabled ? colors.font200 : colors.font100,
             }}
           >
             {prefix}
-          </Text>
+          </CustomText>
         )
       }
       <TextInput

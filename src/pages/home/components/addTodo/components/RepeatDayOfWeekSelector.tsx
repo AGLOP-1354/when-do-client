@@ -5,6 +5,7 @@ import Box from '../../../../../context/component/Box.tsx';
 import {useRecoilValue} from 'recoil';
 import {themeColors} from '../../../../../atoms/theme.ts';
 import { DAY_OF_WEEK } from '../constants';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
   selectedDayOfWeek: string[];
@@ -20,7 +21,7 @@ const RepeatDayOfWeekSelector = ({ selectedDayOfWeek, onChange }: Props) => {
         <View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <FeatherIcon name="repeat" size={16} color={colors.font100} />
-            <Text style={{ color: colors.font100 }}>반복</Text>
+            <CustomText style={{ color: colors.font100 }}>반복</CustomText>
           </View>
         </View>
 
@@ -40,14 +41,14 @@ const RepeatDayOfWeekSelector = ({ selectedDayOfWeek, onChange }: Props) => {
                     onChange({ type, key });
                   }}
                 >
-                  <Text
+                  <CustomText
                     style={{
                       color: isSelected ? colors.font100 : colors.font200,
                       backgroundColor: isSelected ? colors.accent100 : colors.backgroundColor300,
                       padding: 10,
                     }}>
                     {title}
-                  </Text>
+                  </CustomText>
                 </Pressable>
               );
             })

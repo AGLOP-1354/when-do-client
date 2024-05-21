@@ -1,6 +1,7 @@
 import { Image, Pressable, Text, View } from 'react-native';
 import { useRecoilValue } from 'recoil';
 import { themeColors } from '../../../atoms/theme.ts';
+import CustomText from "../../../context/component/CustomText.tsx";
 
 type Props = {
     profileImageUri: string;
@@ -27,7 +28,7 @@ const ProfileImage = ({ profileImageUri, name, onPress }: Props) => {
     return (
         <Pressable onPress={onPress}>
           <View style={{ borderRadius: 50, width: 65, height: 65, backgroundColor: colors.backgroundColor200, justifyContent: 'center' }}>
-              <Text style={{ textAlign: 'center', fontSize: 18, color: colors.font100 }}>{name.slice(0, 1)}</Text>
+              <CustomText style={{ textAlign: 'center', fontSize: 18, color: colors.font100 }}>{name.slice(0, 1)}</CustomText>
           </View>
         </Pressable>
     );

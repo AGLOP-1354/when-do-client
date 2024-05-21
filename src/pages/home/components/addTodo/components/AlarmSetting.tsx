@@ -8,6 +8,7 @@ import 'dayjs/locale/ko';
 
 import Box from '../../../../../context/component/Box.tsx';
 import { themeColors, themeMode } from '../../../../../atoms/theme.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 dayjs.locale('ko');
 
@@ -39,7 +40,7 @@ const AlarmSetting = ({ value, onChange }: Props) => {
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <FeatherIcon name="clock" size={16} color={colors.font100} />
-            <Text style={{ color: colors.font100 }}>알림</Text>
+            <CustomText style={{ color: colors.font100 }}>알림</CustomText>
           </View>
 
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -56,8 +57,8 @@ const AlarmSetting = ({ value, onChange }: Props) => {
           isAlarm && (
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
               <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 4 }}>
-                <Text style={{ color: colors.font100 }}>{String(dayjs(time).format('a'))}</Text>
-                <Text style={{ color: colors.font100, fontSize: 24 }}>{String(dayjs(time).format('HH:mm'))}</Text>
+                <CustomText style={{ color: colors.font100 }}>{String(dayjs(time).format('a'))}</CustomText>
+                <CustomText style={{ color: colors.font100, fontSize: 24 }}>{String(dayjs(time).format('HH:mm'))}</CustomText>
               </View>
               <DatePicker
                 modal
@@ -85,7 +86,7 @@ const AlarmSetting = ({ value, onChange }: Props) => {
                 }}
                 onPress={() => setTimePickerVisible(prev => !prev)}
               >
-                <Text style={{ color: colors.font100 }}>변경</Text>
+                <CustomText style={{ color: colors.font100 }}>변경</CustomText>
               </Pressable>
             </View>
           )

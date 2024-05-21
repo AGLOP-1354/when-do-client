@@ -1,8 +1,9 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import {useRecoilValue} from 'recoil';
 
 import { themeColors } from '../../atoms/theme.ts';
+import CustomText from './CustomText.tsx';
 
 type Props = {
   title: string;
@@ -28,10 +29,10 @@ const ModalHeader = ({ title, onClose, onSubmit, submitButtonDisabled }: Props) 
           color={colors.font100} />
       </Pressable>
 
-      <Text style={{ color: colors.font100, fontSize: 16, fontWeight: 'bold' }}>{title}</Text>
+      <CustomText style={{ color: colors.font100, fontSize: 16, fontWeight: 'bold' }}>{title}</CustomText>
 
       <Pressable onPress={onSubmit} disabled={submitButtonDisabled}>
-        <Text style={{ color: submitButtonDisabled ? colors.font200 : colors.font100 }}>확인</Text>
+        <CustomText style={{ color: submitButtonDisabled ? colors.font200 : colors.font100 }}>확인</CustomText>
       </Pressable>
     </View>
   );

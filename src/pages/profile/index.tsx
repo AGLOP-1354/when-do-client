@@ -15,6 +15,7 @@ import {themeColors} from "../../atoms/theme.ts";
 import ThemeSwitch from "./components/ThemeSwitch.tsx";
 import useAccount from "../../hooks/useAccount.ts";
 import LogoutButton from "./components/LogoutButton.tsx";
+import TodoCountInfo from "./components/TodoCountInfo.tsx";
 
 const Profile = () => {
   const {
@@ -107,6 +108,12 @@ const Profile = () => {
       {
         socialId ? <View /> : (
             <InduceLoginSection showSignUpModal={() => setSignUpModalVisible(true)} />
+        )
+      }
+
+      {
+        socialId && (
+          <TodoCountInfo />
         )
       }
 

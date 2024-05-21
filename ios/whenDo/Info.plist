@@ -36,7 +36,7 @@
 	<key>KAKAO_APP_KEY</key>
 	<string>397e1396e2013f6b77f95cf77c1eb9c2</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -45,7 +45,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -67,6 +67,10 @@
 		<string>Octions.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>fonts/Adultkid.otf</string>
+		<string>NanumGothic-Bold.ttf</string>
+		<string>NanumGothic-ExtraBold.ttf</string>
+		<string>NanumGothic-Regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

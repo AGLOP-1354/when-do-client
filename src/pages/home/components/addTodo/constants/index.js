@@ -1,7 +1,10 @@
 const TODO_TYPE = {
   TODAY_TODO: 'todayToDo',
   GOAL: 'goal',
+  GOAL_UPDATE: 'goalUpdate',
+  GOAL_COMPLETE: 'goalComplete',
   ROUTINE: 'routine',
+  ROUTINE_UPDATE: 'routineUpdate',
 };
 
 const TODO_LIST_BY_TYPES = [
@@ -16,6 +19,16 @@ const TODO_LIST_BY_TYPES = [
     title: '루틴',
   }
 ];
+
+const GOAL_MENU_LIST_ITEMS = [
+  {
+    key: TODO_TYPE.GOAL_UPDATE,
+    title: '목표 수정',
+  }, {
+    key: TODO_TYPE.GOAL_COMPLETE,
+    title: '목표 완료',
+  }
+]
 
 const DAY_OF_WEEK = [
   {
@@ -46,4 +59,5 @@ export {
   TODO_TYPE,
   TODO_LIST_BY_TYPES,
   DAY_OF_WEEK,
+  GOAL_MENU_LIST_ITEMS,
 };

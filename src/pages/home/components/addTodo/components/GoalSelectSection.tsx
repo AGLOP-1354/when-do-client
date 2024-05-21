@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useRecoilValue } from 'recoil';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import Box from '../../../../../context/component/Box.tsx';
 import GoalsSelectModal from './GoalsSelectModal.tsx';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import { goalsAtom } from '../../../../../atoms/goals.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
   goalId: string;
@@ -32,7 +33,7 @@ const GoalSelectSection = ({ goalId, setGoalId }: Props) => {
         <View>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <Ionicons name="flag" size={16} color={colors.font100} />
-            <Text style={{ color: colors.font100 }}>목표</Text>
+            <CustomText style={{ color: colors.font100 }}>목표</CustomText>
           </View>
         </View>
 
@@ -45,7 +46,7 @@ const GoalSelectSection = ({ goalId, setGoalId }: Props) => {
           }}
           onPress={() => setGoalSelectModalVisible(true)}
         >
-          <Text style={{ color: selectedGoal ? colors.font100 : colors.font200 }}>{selectedGoal ? selectedGoal?.title : '목표 선택'}</Text>
+          <CustomText style={{ color: selectedGoal ? colors.font100 : colors.font200 }}>{selectedGoal ? selectedGoal?.title : '목표 선택'}</CustomText>
         </Pressable>
 
         <GoalsSelectModal

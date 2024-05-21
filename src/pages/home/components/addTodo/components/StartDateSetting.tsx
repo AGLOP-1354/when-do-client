@@ -8,6 +8,7 @@ import 'dayjs/locale/ko';
 
 import Box from '../../../../../context/component/Box.tsx';
 import { themeColors, themeMode } from '../../../../../atoms/theme.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 dayjs.locale('ko');
 
@@ -35,7 +36,7 @@ const StartDateSetting = ({ value, onChange }: Props) => {
       >
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
           <FeatherIcon name="calendar" size={16} color={colors.font100} />
-          <Text style={{ color: colors.font100 }}>시작 날짜</Text>
+          <CustomText style={{ color: colors.font100 }}>시작 날짜</CustomText>
         </View>
 
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
@@ -48,7 +49,7 @@ const StartDateSetting = ({ value, onChange }: Props) => {
             }}
             onPress={() => setTimePickerVisible(prev => !prev)}
           >
-            <Text style={{ color: colors.font100 }}>{String(dayjs(value).format('YYYY.MM.DD'))}</Text>
+            <CustomText style={{ color: colors.font100 }}>{String(dayjs(value).format('YYYY.MM.DD'))}</CustomText>
           </Pressable>
           <DatePicker
             modal

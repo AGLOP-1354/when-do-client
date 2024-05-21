@@ -4,6 +4,7 @@ import {FlatList, Modal, Pressable, SafeAreaView, Text, View} from 'react-native
 import {goalsAtom} from '../../../../../atoms/goals.ts';
 import {themeColors} from '../../../../../atoms/theme.ts';
 import {Divider} from "react-native-paper";
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
   value: string;
@@ -42,7 +43,7 @@ const GoalsSelectModal = ({ value, onSelect, visible, onClose }: Props) => {
             padding: 20,
           }}
         >
-          <Text style={{ color: colors.font100, fontSize: 16, fontWeight: 'bold' }}>목표 선택</Text>
+          <CustomText style={{ color: colors.font100, fontSize: 16, fontWeight: 'bold' }}>목표 선택</CustomText>
 
           <View style={{ height: 40 }} />
 
@@ -63,7 +64,7 @@ const GoalsSelectModal = ({ value, onSelect, visible, onClose }: Props) => {
                   onPress={() => onSelectGoal(item.id)}
                 >
                   <View>
-                    <Text style={{ color: isSelectedColor ? colors.font100 : colors.font200 }}>{item.title}</Text>
+                    <CustomText style={{ color: isSelectedColor ? colors.font100 : colors.font200 }}>{item.title}</CustomText>
                   </View>
                 </Pressable>
               );

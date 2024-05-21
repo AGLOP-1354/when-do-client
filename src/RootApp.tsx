@@ -28,8 +28,9 @@ const RootApp = () => {
         tabBarActiveTintColor: colors.primary100,
         tabBarInactiveTintColor: colors.font200,
         tabBarStyle: {
-          backgroundColor: colors.backgroundColor100,
-          borderTopWidth: 0,
+          paddingTop: 4,
+          backgroundColor: colors.backgroundColor200,
+          borderTopColor: colors.backgroundColor300,
         },
       }}
     >

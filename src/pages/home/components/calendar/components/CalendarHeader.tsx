@@ -7,6 +7,7 @@ import ArrowButton from './ArrowButton';
 import { getDayText } from '../../../utils';
 import Column from './Column';
 import { themeColors } from '../../../../../atoms/theme.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
   selectedDate: dayjs.Dayjs;
@@ -28,7 +29,7 @@ const CalendarHeader = ({
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
         <ArrowButton iconName="chevron-left" onPress={subtractOneMonth} />
 
-        <Text style={{ fontSize: 16, fontWeight: 'bold', color: colors.font100 }}>{currentDataText}</Text>
+        <CustomText style={{ fontSize: 16, fontWeight: 'bold', color: colors.font100 }}>{currentDataText}</CustomText>
 
         <ArrowButton iconName="chevron-right" onPress={addOneMonth} />
       </View>

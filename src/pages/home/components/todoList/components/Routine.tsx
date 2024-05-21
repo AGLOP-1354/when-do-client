@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { Routine } from '../../../../../atoms/routine.ts';
 import { themeColors  } from '../../../../../atoms/theme.ts';
 import useRoutineSuccess from '../../../../../hooks/useRoutineSuccess.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type RoutineProps = {
   routine: Routine;
@@ -49,7 +50,7 @@ const RoutineSection = ({ routine, color }: RoutineProps) => {
         onPress={() => onPress()}
       />
 
-      <Text style={{ color: colors.font100 }}>{routine.title}</Text>
+      <CustomText style={{ color: colors.font100 }}>{routine.title}</CustomText>
     </View>
   );
 };

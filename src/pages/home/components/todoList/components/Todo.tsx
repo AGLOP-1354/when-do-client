@@ -5,6 +5,7 @@ import {useRecoilValue} from 'recoil';
 
 import {TodayTodo} from '../../../../../atoms/todayTodo.ts';
 import {themeColors} from '../../../../../atoms/theme.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type TodoProps = {
   todo: TodayTodo;
@@ -32,7 +33,7 @@ const Todo = ({ todo, color }: TodoProps) => {
         onPress={() => setIsCompleted(prev => !prev)}
       />
 
-      <Text style={{ color: colors.font100 }}>{todo.title}</Text>
+      <CustomText style={{ color: colors.font100 }}>{todo.title}</CustomText>
     </View>
   );
 };

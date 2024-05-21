@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
     text: string;
@@ -25,7 +26,7 @@ const Column = ({
         borderRadius: 50,
         opacity,
       }}>
-      <Text
+      <CustomText
         style={{
           fontSize: 14,
           color,
@@ -36,7 +37,7 @@ const Column = ({
         }}
       >
         {text}
-      </Text>
+      </CustomText>
     </View>
   );
 };

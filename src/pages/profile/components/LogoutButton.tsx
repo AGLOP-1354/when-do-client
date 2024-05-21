@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import useAccount from '../../../hooks/useAccount.ts';
 import { themeColors } from '../../../atoms/theme.ts';
+import CustomText from "../../../context/component/CustomText.tsx";
 
 const LogoutButton = () => {
   const colors = useRecoilValue(themeColors);
@@ -23,7 +24,7 @@ const LogoutButton = () => {
         gap: 16,
       }}
     >
-      <Text style={{ color: colors.font100, fontWeight: 'bold' }}>로그아웃</Text>
+      <CustomText style={{ color: colors.font100, fontWeight: 'bold' }}>로그아웃</CustomText>
     </Pressable>
   );
 };

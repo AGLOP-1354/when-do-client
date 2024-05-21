@@ -2,6 +2,7 @@ import { Pressable, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useRecoilValue } from 'recoil';
 import { themeColors } from '../../../../../atoms/theme.ts';
+import CustomText from "../../../../../context/component/CustomText.tsx";
 
 type Props = {
     onClose: () => void;
@@ -23,10 +24,10 @@ const ProfileSettingModalHeader = ({ onClose, onSubmit }: Props) => {
                 <Ionicons name="chevron-back" size={20} color={colors.font100} />
             </Pressable>
 
-            <Text style={{ fontSize: 18, fontWeight: 'bold', color: colors.font100 }}>프로필</Text>
+            <CustomText style={{ fontSize: 18, fontWeight: 'bold', color: colors.font100 }}>프로필</CustomText>
 
             <Pressable onPress={onSubmit} >
-                <Text style={{ fontSize: 18, fontWeight: 'bold', color: colors.font100 }}>확인</Text>
+                <CustomText style={{ fontSize: 18, fontWeight: 'bold', color: colors.font100 }}>확인</CustomText>
             </Pressable>
         </View>
     );
