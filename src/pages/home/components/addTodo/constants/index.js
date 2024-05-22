@@ -5,6 +5,7 @@ const TODO_TYPE = {
   GOAL: 'goal',
   GOAL_UPDATE: 'goalUpdate',
   GOAL_COMPLETE: 'goalComplete',
+  GOAL_DELETE: 'goalDelete',
   ROUTINE: 'routine',
   ROUTINE_UPDATE: 'routineUpdate',
 };
@@ -29,6 +30,9 @@ const GOAL_MENU_LIST_ITEMS = [
   }, {
     key: TODO_TYPE.GOAL_COMPLETE,
     title: '목표 완료',
+  }, {
+    key: TODO_TYPE.GOAL_DELETE,
+    title: '목표 삭제',
   }
 ];
 

@@ -78,6 +78,8 @@ const Goal = ({ id, title, color, startDate, selectedDate, setSelectedTodayTodo 
     setTempTodoInputVisible(false);
   }, [tempTodoTitle, addTodayTodo, id, setTodayTodoList, todayTodoList]);
 
+  const hasChildItem = filteredTodayTodoList.length > 0 || filteredRoutineList.length > 0;
+
   return (
     <Loading loading={isFetchTodayTodoListLoading || isFetchRoutineListLoading}>
       <View>
@@ -109,6 +111,7 @@ const Goal = ({ id, title, color, startDate, selectedDate, setSelectedTodayTodo 
                   title={title}
                   color={color}
                   startDate={startDate}
+                  hasChildItem={hasChildItem}
                 />
               )
             }

@@ -120,6 +120,7 @@ const useRoutine = () => {
     addRoutine,
     routineListFromDatabase,
     isFetchRoutineListLoading,
+    refetchRoutineList,
   };
 };
 

@@ -5,6 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import useFetch from './useFetch.ts';
 import { goalsAtom } from '../atoms/goals.ts';
 import uuid from 'react-native-uuid';
+import useTodayTodo from "./useTodayTodo.ts";
+import useRoutine from "./useRoutine.ts";
 
 const USER_ID = 'userId';
 
@@ -41,6 +43,8 @@ type AddGoalResponse = {
 const useGoals = () => {
   const setGoalList = useSetRecoilState(goalsAtom);
 
+  const { refetchTodayTodoList } = useTodayTodo();
+  const { refetchRoutineList } = useRoutine();
   const { kyFetch, kyFetchWithUserId } = useFetch();
 
   const {
@@ -149,6 +153,30 @@ const useGoals = () => {
     onSuccess: async () => {
       await refetchGoalList();
     },
+  });
+
+  const deleteGoal = useMutation({
+    mutationFn: async ({ id, isDeleteChildItem }: { id: string, isDeleteChildItem: boolean }) => {
+      try {
+        const result = await kyFetchWithUserId({
+          method: 'POST',
+          url: '/goal/delete',
+          data: {
+            id,
+            isDeleteChildItem,
+          }
+        });
+
+        return result;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    onSuccess: async () => {
+      await refetchGoalList();
+      await refetchTodayTodoList();
+      await refetchRoutineList();
+    },
   })
 
   return {
@@ -156,6 +184,7 @@ const useGoals = () => {
     isFetchGoalListLoading,
     addGoal,
     updateGoal,
+    deleteGoal,
   };
 };
 

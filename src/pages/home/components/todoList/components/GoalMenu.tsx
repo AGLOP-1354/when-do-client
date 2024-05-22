@@ -1,4 +1,4 @@
-import { Pressable, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import { Divider, Menu } from 'react-native-paper';
 import { useState } from 'react';
@@ -7,21 +7,23 @@ import { useRecoilValue } from 'recoil';
 import { GOAL_MENU_LIST_ITEMS, TODO_TYPE } from '../../addTodo/constants';
 import { themeColors } from '../../../../../atoms/theme.ts';
 import GoalSettingModal from '../../addTodo/components/GoalSettingModal.tsx';
-import useGoals from "../../../../../hooks/useGoals.ts";
+import useGoals from '../../../../../hooks/useGoals.ts';
 
 type Props = {
   id: string;
   title?: string;
   startDate?: Date;
   color?: string;
+  hasChildItem: boolean;
 }
 
-const GoalMenu = ({ id, title, startDate, color }: Props) => {
+const GoalMenu = ({ id, title, startDate, color, hasChildItem }: Props) => {
   const colors = useRecoilValue(themeColors);
-  const { updateGoal } = useGoals();
+  const { updateGoal, deleteGoal } = useGoals();
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [goalSettingModalVisible, setGoalSettingModalVisible] = useState(false);
+
 
   const onClickMenu = (key: string) => {
     switch (key) {
@@ -37,6 +39,38 @@ const GoalMenu = ({ id, title, startDate, color }: Props) => {
         });
         setGoalSettingModalVisible(false);
         return;
+      }
+      case TODO_TYPE.GOAL_DELETE: {
+        if (hasChildItem) {
+          Alert.alert(
+            `${title}의 하위 항목들을 같이 삭제할까요?`,
+            '\'아니요\'를 클릭하시면 \'오늘의 할 일\' 하위 항목으로 이동합니다.',
+            [
+              {
+                text: '삭제하기', onPress: () => {
+                  deleteGoal.mutate({
+                    id,
+                    isDeleteChildItem: true,
+                  });
+                }
+              },
+              {
+                text: '아니요', onPress: () => {
+                  deleteGoal.mutate({
+                    id,
+                    isDeleteChildItem: false,
+                  });
+                }
+              },
+            ],
+          );
+          return;
+        }
+
+        deleteGoal.mutate({
+          id,
+          isDeleteChildItem: false,
+        });
       }
     }
   };
