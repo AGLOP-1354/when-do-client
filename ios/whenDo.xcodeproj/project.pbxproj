@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* whenDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* whenDoTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-whenDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-whenDo.a */; };
+		11312450602AB4DE0EEB3885 /* libPods-whenDo-whenDoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		231E0D572BFE3336006E365C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231E0D562BFE3336006E365C /* GoogleService-Info.plist */; };
 		2325743E2BF380FC002B4D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		232574412BF383AA002B4D1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2325743F2BF383AA002B4D1F /* InfoPlist.strings */; };
 		2377C82A2BEF0F0C00FFE5A2 /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377C8292BEF0F0C00FFE5A2 /* SwiftBridge.swift */; };
-		7699B88040F8A987B510C191 /* libPods-whenDo-whenDoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-whenDo-whenDoTests.a */; };
-		C6D116D953BBD72C947A6A19 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8D0078376DC4418466CADFC1 /* PrivacyInfo.xcprivacy */; };
-		638F5BCFFED6469DA66B679D /* NanumGothic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */; };
 		2BDEC51120C6460BAA411F09 /* NanumGothic-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B24E21A087420495386FC1 /* NanumGothic-ExtraBold.ttf */; };
+		638F5BCFFED6469DA66B679D /* NanumGothic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */; };
+		9EF349B24C7DA3EB0307CA73 /* libPods-whenDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */; };
+		C6D116D953BBD72C947A6A19 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8D0078376DC4418466CADFC1 /* PrivacyInfo.xcprivacy */; };
 		D422D56008FF46FBB1057E6E /* NanumGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		00E356EE1AD99517003FC87E /* whenDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whenDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* whenDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whenDoTests.m; sourceTree = "<group>"; };
+		07EB32336E3FF1C138C2D166 /* Pods-whenDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDoTests.release.xcconfig"; path = "Target Support Files/Pods-whenDoTests/Pods-whenDoTests.release.xcconfig"; sourceTree = "<group>"; };
+		097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-Bold.ttf"; path = "../src/assets/fonts/NanumGothic-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* whenDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = whenDo/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = whenDo/AppDelegate.mm; sourceTree = "<group>"; };
@@ -43,22 +46,23 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = whenDo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = whenDo/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = whenDo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-whenDo-whenDoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo-whenDoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20B24E21A087420495386FC1 /* NanumGothic-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-ExtraBold.ttf"; path = "../src/assets/fonts/NanumGothic-ExtraBold.ttf"; sourceTree = "<group>"; };
+		231E0D562BFE3336006E365C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		232574402BF383AA002B4D1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232574422BF383C1002B4D1F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2377C8282BEF0F0B00FFE5A2 /* whenDo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "whenDo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2377C8292BEF0F0C00FFE5A2 /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-whenDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.debug.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.debug.xcconfig"; sourceTree = "<group>"; };
+		52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-Regular.ttf"; path = "../src/assets/fonts/NanumGothic-Regular.ttf"; sourceTree = "<group>"; };
+		56F51E4BB4CF9E7346C54682 /* Pods-whenDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDoTests.debug.xcconfig"; path = "Target Support Files/Pods-whenDoTests/Pods-whenDoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-whenDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.release.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-whenDo-whenDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.debug.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-whenDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = whenDo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-whenDo-whenDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.release.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D0078376DC4418466CADFC1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = whenDo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo-whenDoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */ = {isa = PBXFileReference; name = "NanumGothic-Bold.ttf"; path = "../src/assets/fonts/NanumGothic-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		20B24E21A087420495386FC1 /* NanumGothic-ExtraBold.ttf */ = {isa = PBXFileReference; name = "NanumGothic-ExtraBold.ttf"; path = "../src/assets/fonts/NanumGothic-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */ = {isa = PBXFileReference; name = "NanumGothic-Regular.ttf"; path = "../src/assets/fonts/NanumGothic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-whenDo-whenDoTests.a in Frameworks */,
+				11312450602AB4DE0EEB3885 /* libPods-whenDo-whenDoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-whenDo.a in Frameworks */,
+				9EF349B24C7DA3EB0307CA73 /* libPods-whenDo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 		13B07FAE1A68108700A75B9A /* whenDo */ = {
 			isa = PBXGroup;
 			children = (
+				231E0D562BFE3336006E365C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -120,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-whenDo.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-whenDo-whenDoTests.a */,
+				EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */,
+				A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,7 +171,6 @@
 				52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -176,6 +180,8 @@
 				5709B34CF0A7D63546082F79 /* Pods-whenDo.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-whenDo-whenDoTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-whenDo-whenDoTests.release.xcconfig */,
+				56F51E4BB4CF9E7346C54682 /* Pods-whenDoTests.debug.xcconfig */,
+				07EB32336E3FF1C138C2D166 /* Pods-whenDoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -191,8 +197,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				41F7E8BD69A99D6B7FB4A852 /* [CP] Embed Pods Frameworks */,
+				3E8F8DC589F186A7519DE30A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,8 +219,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				476F7304B1DFEF24AF251F00 /* [CP] Embed Pods Frameworks */,
+				1BA03B62C4B2DAF246415F0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2325743E2BF380FC002B4D1F /* LaunchScreen.storyboard in Resources */,
+				231E0D572BFE3336006E365C /* GoogleService-Info.plist in Resources */,
 				232574412BF383AA002B4D1F /* InfoPlist.strings in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C6D116D953BBD72C947A6A19 /* PrivacyInfo.xcprivacy in Resources */,
@@ -303,7 +310,58 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		1BA03B62C4B2DAF246415F0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E8F8DC589F186A7519DE30A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41F7E8BD69A99D6B7FB4A852 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		476F7304B1DFEF24AF251F00 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,57 +420,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -632,7 +639,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/lib/swift\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -708,7 +714,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/lib/swift\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
