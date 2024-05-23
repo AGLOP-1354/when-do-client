@@ -9,6 +9,7 @@ import { themeColors } from './atoms/theme.ts';
 import useSplashScreen from './hooks/useSplashScreen.ts';
 import useAccount from './hooks/useAccount.ts';
 import { accountAtom } from './atoms/account.ts';
+import SearchUser from './context/component/searchUser';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -45,7 +46,7 @@ const RootApp = () => {
       />
       <BottomTab.Screen
         name="look"
-        component={Home}
+        component={SearchUser}
         options={{
           tabBarLabel: '둘러보기',
           tabBarIcon: ({ color, size }) => <FontAwesomeIcon name="search" size={size} color={color} />,

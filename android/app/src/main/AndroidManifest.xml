@@ -21,5 +21,17 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+        <activity
+        android:name=".MainActivity"
+        android:exported="true">
+        <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:host="kakaolink"
+          android:scheme="kakao397e1396e2013f6b77f95cf77c1eb9c2" />
+        </intent-filter>
+        </activity>
     </application>
 </manifest>

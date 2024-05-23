@@ -1,23 +1,23 @@
-import { memo, useState } from "react";
+import { memo, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { FlatList } from "react-native";
+import { FlatList } from 'react-native';
 import dayjs from 'dayjs';
 
 import {goalsAtom} from '../../../../atoms/goals.ts';
 import Goal from './components/Goal.tsx';
 import { themeColors } from '../../../../atoms/theme.ts';
 import { weekCalendarState } from '../../../../atoms/calendar.ts';
-import TodayTodoSettingModal from "../addTodo/components/TodayTodoSettingModal.tsx";
-import { TodayTodo } from "../../../../atoms/todayTodo.ts";
+import TodayTodoSettingModal from '../addTodo/components/TodayTodoSettingModal.tsx';
+import { TodayTodo } from '../../../../atoms/todayTodo.ts';
 
 const TODAY_TODO_INIT_DATA = {
   alarmTime: undefined,
-  goalId: "",
-  id: "",
+  goalId: '',
+  id: '',
   isAlarm: false,
   isCompleted: false,
   startDate: undefined,
-  title: ""
+  title: ''
 };
 
 const TodoList = () => {

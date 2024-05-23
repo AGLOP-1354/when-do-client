@@ -42,6 +42,7 @@ const Todo = ({ todo, color, setSelectedTodayTodo }: TodoProps) => {
           size={20}
           fillColor={color}
           onPress={onCheckComplete}
+          style={{ width: 30 }}
         />
 
         <CustomText style={{ color: colors.font100 }}>{todo.title}</CustomText>

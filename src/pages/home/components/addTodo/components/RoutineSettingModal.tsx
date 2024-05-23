@@ -17,7 +17,7 @@ type Props = {
   onClose: () => void;
 }
 
-const AddRoutineModal = ({ visible, onClose }: Props) => {
+const RoutineSettingModal = ({ visible, onClose }: Props) => {
   const colors = useRecoilValue(themeColors);
 
   const { addRoutine } = useRoutine();
@@ -107,4 +107,4 @@ const AddRoutineModal = ({ visible, onClose }: Props) => {
   );
 };
 
-export default AddRoutineModal;
+export default RoutineSettingModal;

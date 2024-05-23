@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import * as KakaoLogins from '@react-native-seoul/kakao-login';
+import { login, me } from '@react-native-kakao/user';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import AppleLogo from '../../../../assets/oAuth/apple-logo.svg';
@@ -23,7 +23,9 @@ const OAuthButtonList = () => {
     const { createAccount, updateAccount } = useAccount();
 
     const kakaoLoginRequest = async () => {
-        const profile = await KakaoLogins.getProfile();
+        await login();
+
+        const profile = await me();
 
         if (_id) {
             updateAccount.mutate({

@@ -8,6 +8,8 @@ const TODO_TYPE = {
   GOAL_DELETE: 'goalDelete',
   ROUTINE: 'routine',
   ROUTINE_UPDATE: 'routineUpdate',
+  ROUTINE_COMPLETE: 'routineComplete',
+  ROUTINE_DELETE: 'routineDelete',
 };
 
 const TODO_LIST_BY_TYPES = [
@@ -44,7 +46,20 @@ const TODAY_TODO_MENU__LIST_ITEMS = [
     key: TODO_TYPE.TODAY_TODO_DELETE,
     title: '할 일 삭제',
   }
-]
+];
+
+const ROUTINE_MENU_LIST_ITEMS = [
+  {
+    key: TODO_TYPE.ROUTINE_UPDATE,
+    title: '루틴 수정',
+  }, {
+    key: TODO_TYPE.ROUTINE_COMPLETE,
+    title: '루틴 완료',
+  }, {
+    key: TODO_TYPE.ROUTINE_DELETE,
+    title: '루틴 삭제',
+  }
+];
 
 const DAY_OF_WEEK = [
   {
@@ -77,4 +92,5 @@ export {
   DAY_OF_WEEK,
   GOAL_MENU_LIST_ITEMS,
   TODAY_TODO_MENU__LIST_ITEMS,
+  ROUTINE_MENU_LIST_ITEMS,
 };

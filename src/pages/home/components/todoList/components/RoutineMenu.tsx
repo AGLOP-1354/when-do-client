@@ -4,33 +4,30 @@ import { Divider, Menu } from 'react-native-paper';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import { TODAY_TODO_MENU__LIST_ITEMS, TODO_TYPE } from '../../addTodo/constants';
+import { ROUTINE_MENU_LIST_ITEMS, TODO_TYPE } from '../../addTodo/constants';
 import { themeColors } from '../../../../../atoms/theme.ts';
-import useTodayTodo from '../../../../../hooks/useTodayTodo.ts';
 
 type Props = {
   id: string;
-  selectUpdateTodayTodo: () => void;
-};
+  selectUpdateRoutineTodo: () => void;
+}
 
-const TodayTodoMenu = ({ id, selectUpdateTodayTodo }: Props) => {
+const RoutineMenu = ({ id, selectUpdateRoutineTodo }: Props) => {
   const colors = useRecoilValue(themeColors);
-  const { deleteTodayTodo } = useTodayTodo();
 
   const [menuVisible, setMenuVisible] = useState(false);
 
+
   const onClickMenu = (key: string) => {
     switch (key) {
-      case TODO_TYPE.TODAY_TODO_UPDATE: {
-        selectUpdateTodayTodo();
-        setMenuVisible(false);
+      case TODO_TYPE.GOAL_UPDATE: {
+        selectUpdateRoutineTodo();
         return;
       }
-      case TODO_TYPE.TODAY_TODO_DELETE: {
-        deleteTodayTodo.mutate({
-          id,
-        });
-        setMenuVisible(false);
+      case TODO_TYPE.GOAL_COMPLETE: {
+        return;
+      }
+      case TODO_TYPE.GOAL_DELETE: {
         return;
       }
     }
@@ -52,9 +49,9 @@ const TodayTodoMenu = ({ id, selectUpdateTodayTodo }: Props) => {
         )}
       >
         {
-          TODAY_TODO_MENU__LIST_ITEMS.map(({ title, key }, index) => {
+          ROUTINE_MENU_LIST_ITEMS.map(({ title, key }, index) => {
             const isFirstItem = index === 0;
-            const isLastItem = index === TODAY_TODO_MENU__LIST_ITEMS.length - 1;
+            const isLastItem = index === ROUTINE_MENU_LIST_ITEMS.length - 1;
 
             return (
               <View key={`todo-list-menu-${key}`}>
@@ -82,4 +79,4 @@ const TodayTodoMenu = ({ id, selectUpdateTodayTodo }: Props) => {
   );
 };
 
-export default TodayTodoMenu;
+export default RoutineMenu;

@@ -6,6 +6,7 @@ import { Routine } from '../../../../../atoms/routine.ts';
 import { themeColors  } from '../../../../../atoms/theme.ts';
 import useRoutineSuccess from '../../../../../hooks/useRoutineSuccess.ts';
 import CustomText from "../../../../../context/component/CustomText.tsx";
+import RoutineMenu from "./RoutineMenu.tsx";
 
 type RoutineProps = {
   routine: Routine;
@@ -39,18 +40,22 @@ const RoutineSection = ({ routine, color }: RoutineProps) => {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 10,
-        paddingHorizontal: 10,
+        justifyContent:'space-between',
+        paddingLeft: 15,
+        paddingRight: 20,
       }}>
       {/* TODO: 체크 시 앱 아이콘이 보이도록 수정 */}
-      <BouncyCheckbox
-        isChecked={routineSuccessInfo.isSuccess}
-        size={20}
-        fillColor={color}
-        onPress={() => onPress()}
-      />
+      <View style={{ flexDirection: 'row' }}>
+        <BouncyCheckbox
+          isChecked={routineSuccessInfo.isSuccess}
+          size={20}
+          fillColor={color}
+          onPress={() => onPress()}
+          style={{ width: 30 }}
+        />
 
-      <CustomText style={{ color: colors.font100 }}>{routine.title}</CustomText>
+        <CustomText style={{ color: colors.font100 }}>{routine.title}</CustomText>
+      </View>
     </View>
   );
 };

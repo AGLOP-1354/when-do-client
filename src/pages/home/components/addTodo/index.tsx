@@ -8,7 +8,7 @@ import { TODO_LIST_BY_TYPES, TODO_TYPE } from './constants';
 import { themeColors } from '../../../../atoms/theme.ts';
 import TodayTodoSettingModal from './components/TodayTodoSettingModal.tsx';
 import GoalSettingModal from './components/GoalSettingModal.tsx';
-import AddRoutineModal from './components/AddRoutineModal.tsx';
+import RoutineSettingModal from './components/RoutineSettingModal.tsx';
 import { weekCalendarState } from "../../../../atoms/calendar.ts";
 
 const AddTodo = () => {
@@ -115,7 +115,7 @@ const AddTodo = () => {
       onClose={closeAddGoalModal}
     />
 
-    <AddRoutineModal
+    <RoutineSettingModal
       key={`add-routine-modal-${addRoutineModalVisible}`}
       visible={addRoutineModalVisible}
       onClose={closeAddRoutineModal}
