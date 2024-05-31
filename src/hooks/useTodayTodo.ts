@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TodayTodo, todayTodoListAtom } from '../atoms/todayTodo.ts';
 import useFetch from './useFetch.ts';
 import { weekCalendarState } from '../atoms/calendar.ts';
+import useWidget from './useWidget.ts';
 
 type UpdateTodayTodoParams = {
   id: string;
@@ -40,6 +41,7 @@ const useTodayTodo = () => {
   const { selectedWeekDate } = useRecoilValue(weekCalendarState);
   const setTodayTodoList = useSetRecoilState(todayTodoListAtom);
 
+  const { refetchWidget } = useWidget();
   const { kyFetchWithUserId } = useFetch();
 
   const {
@@ -122,6 +124,7 @@ const useTodayTodo = () => {
       ...prev,
       result,
     ]));
+    refetchWidget();
     onSuccessCallback();
   }, [kyFetchWithUserId, setTodayTodoList]);
 
@@ -154,6 +157,7 @@ const useTodayTodo = () => {
       }
     },
     onSuccess: async () => {
+      refetchWidget();
       await refetchTodayTodoList();
     }
   });

@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@invertase/react-native-apple-authentication": "^2.3.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-google-signin/google-signin": "^11.0.1",
@@ -19,9 +20,10 @@
     "@react-native-kakao/user": "^2.2.2",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
+    "@supabase/supabase-js": "^2.43.4",
     "dayjs": "^1.11.11",
     "ky": "^1.2.4",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-native": "0.74.1",
     "react-native-bouncy-checkbox": "^4.0.0",
     "react-native-date-picker": "^5.0.2",
@@ -38,6 +40,7 @@
     "react-native-svg": "^15.2.0",
     "react-native-svg-transformer": "^1.3.0",
     "react-native-tab-view": "^3.5.2",
+    "react-native-url-polyfill": "^2.0.0",
     "react-native-uuid": "^2.0.2",
     "react-native-vector-icons": "^10.1.0",
     "react-query": "^3.39.3",

@@ -1,4 +1,5 @@
 import ky from 'ky';
+import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type FetchRequest = {
@@ -9,11 +10,23 @@ type FetchRequest = {
 
 const USER_ID = 'userId';
 
+const getAPIHost = () => {
+  if(Platform.OS === 'ios') {
+    return 'http://when-do.ap-northeast-2.elasticbeanstalk.com';
+  }
+  else if(Platform.OS === 'android') {
+    return 'http://when-do.ap-northeast-2.elasticbeanstalk.com';
+  }
+  else {
+    throw 'Platform not supported';
+  }
+};
+
 const useFetch = () => {
   const kyFetch = async ({ data = {}, url, method }: FetchRequest) => {
     try {
       const response = await ky(
-        `http://localhost:4500${url}`,
+        `${getAPIHost()}${url}`,
         {
           method,
           ...(

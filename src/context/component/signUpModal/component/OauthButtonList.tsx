@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { login, me } from '@react-native-kakao/user';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import appleAuth from '@invertase/react-native-apple-authentication';
 
 import AppleLogo from '../../../../assets/oAuth/apple-logo.svg';
 import GoogleLogo from '../../../../assets/oAuth/google-logo.svg';
@@ -65,7 +66,33 @@ const OAuthButtonList = () => {
     };
 
     const appleLoginRequest = async () => {
-        await Promise.resolve();
+        const appleAuthRequestResponse = await appleAuth.performRequest({
+            requestedOperation: appleAuth.Operation.LOGIN,
+            requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
+        });
+
+        const credentialState = await appleAuth.getCredentialStateForUser(
+          appleAuthRequestResponse.user,
+        );
+
+        // use credentialState response to ensure the user is authenticated
+        if (credentialState === appleAuth.State.AUTHORIZED) {
+            if (_id) {
+                updateAccount.mutate({
+                    socialId: appleAuthRequestResponse.authorizationCode || '',
+                    name: appleAuthRequestResponse.fullName ? `${appleAuthRequestResponse.fullName.familyName}}${appleAuthRequestResponse.fullName.givenName}` : '',
+                    email: appleAuthRequestResponse.email || '',
+                    profileImage: '',
+                });
+            }
+
+            createAccount.mutate({
+                socialId: appleAuthRequestResponse.authorizationCode || '',
+                name: appleAuthRequestResponse.fullName ? `${appleAuthRequestResponse.fullName.familyName}}${appleAuthRequestResponse.fullName.givenName}` : '',
+                email: appleAuthRequestResponse.email || '',
+                profileImage: '',
+            });
+        }
     };
 
     const providerLoginRequest = (provider: string) => {

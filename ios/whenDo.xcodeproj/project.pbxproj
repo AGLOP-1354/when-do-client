@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* whenDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* whenDoTests.m */; };
-		11312450602AB4DE0EEB3885 /* libPods-whenDo-whenDoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -16,11 +15,20 @@
 		2325743E2BF380FC002B4D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		232574412BF383AA002B4D1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2325743F2BF383AA002B4D1F /* InfoPlist.strings */; };
 		2377C82A2BEF0F0C00FFE5A2 /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377C8292BEF0F0C00FFE5A2 /* SwiftBridge.swift */; };
+		23FB26AE2C010E6000F752B6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB25FE2C0086C200F752B6 /* WidgetKit.framework */; };
+		23FB26AF2C010E6000F752B6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB26002C0086C200F752B6 /* SwiftUI.framework */; };
+		23FB26B22C010E6000F752B6 /* WhenDoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB26B12C010E6000F752B6 /* WhenDoWidgetBundle.swift */; };
+		23FB26B42C010E6000F752B6 /* WhenDoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB26B32C010E6000F752B6 /* WhenDoWidget.swift */; };
+		23FB26B62C010E6000F752B6 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB26B52C010E6000F752B6 /* AppIntent.swift */; };
+		23FB26B82C010E6000F752B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FB26B72C010E6000F752B6 /* Assets.xcassets */; };
+		23FB26BC2C010E6100F752B6 /* WhenDoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 23FB26AD2C010E6000F752B6 /* WhenDoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		23FB26DB2C01838F00F752B6 /* SharedStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FB26DA2C01838F00F752B6 /* SharedStorage.m */; };
 		2BDEC51120C6460BAA411F09 /* NanumGothic-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20B24E21A087420495386FC1 /* NanumGothic-ExtraBold.ttf */; };
 		638F5BCFFED6469DA66B679D /* NanumGothic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */; };
-		9EF349B24C7DA3EB0307CA73 /* libPods-whenDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */; };
 		C6D116D953BBD72C947A6A19 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8D0078376DC4418466CADFC1 /* PrivacyInfo.xcprivacy */; };
 		D422D56008FF46FBB1057E6E /* NanumGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */; };
+		E7F06DB73560F767203E812D /* libPods-whenDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6F1878A3258A9DC857420F /* libPods-whenDo.a */; };
+		EFFF6786B7B9072648BCFF49 /* libPods-whenDo-whenDoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2366094C7C1ECB6D1F3D7079 /* libPods-whenDo-whenDoTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +39,33 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = whenDo;
 		};
+		23FB26BA2C010E6100F752B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23FB26AC2C010E6000F752B6;
+			remoteInfo = WhenDoWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23FB26112C0086C300F752B6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				23FB26BC2C010E6100F752B6 /* WhenDoWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* whenDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whenDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* whenDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whenDoTests.m; sourceTree = "<group>"; };
-		07EB32336E3FF1C138C2D166 /* Pods-whenDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDoTests.release.xcconfig"; path = "Target Support Files/Pods-whenDoTests/Pods-whenDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		097D9312F4ED41118AA3FFCD /* NanumGothic-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-Bold.ttf"; path = "../src/assets/fonts/NanumGothic-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* whenDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = whenDo/AppDelegate.h; sourceTree = "<group>"; };
@@ -46,22 +74,34 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = whenDo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = whenDo/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = whenDo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		15638124AB956FBC293F3E2E /* Pods-whenDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.release.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.release.xcconfig"; sourceTree = "<group>"; };
 		20B24E21A087420495386FC1 /* NanumGothic-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-ExtraBold.ttf"; path = "../src/assets/fonts/NanumGothic-ExtraBold.ttf"; sourceTree = "<group>"; };
 		231E0D562BFE3336006E365C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		232574402BF383AA002B4D1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232574422BF383C1002B4D1F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2366094C7C1ECB6D1F3D7079 /* libPods-whenDo-whenDoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo-whenDoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2377C8282BEF0F0B00FFE5A2 /* whenDo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "whenDo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2377C8292BEF0F0C00FFE5A2 /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-whenDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.debug.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.debug.xcconfig"; sourceTree = "<group>"; };
+		23FB25FE2C0086C200F752B6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		23FB26002C0086C200F752B6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		23FB26972C00F67D00F752B6 /* WhenDoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenDoWidgetExtension.entitlements; sourceTree = "<group>"; };
+		23FB269C2C0104B200F752B6 /* WhenDoWidgetExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhenDoWidgetExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		23FB26AD2C010E6000F752B6 /* WhenDoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WhenDoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		23FB26B12C010E6000F752B6 /* WhenDoWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenDoWidgetBundle.swift; sourceTree = "<group>"; };
+		23FB26B32C010E6000F752B6 /* WhenDoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenDoWidget.swift; sourceTree = "<group>"; };
+		23FB26B52C010E6000F752B6 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		23FB26B72C010E6000F752B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23FB26B92C010E6100F752B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23FB26C12C01138900F752B6 /* WhenDoWidgetExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhenDoWidgetExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		23FB26DA2C01838F00F752B6 /* SharedStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedStorage.m; sourceTree = "<group>"; };
+		23FB26DD2C0183B900F752B6 /* SharedStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedStorage.h; sourceTree = "<group>"; };
+		2804342D1AD60A619122C760 /* Pods-whenDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.debug.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.debug.xcconfig"; sourceTree = "<group>"; };
+		4A6F1878A3258A9DC857420F /* libPods-whenDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52026723BC5E446190F98082 /* NanumGothic-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumGothic-Regular.ttf"; path = "../src/assets/fonts/NanumGothic-Regular.ttf"; sourceTree = "<group>"; };
-		56F51E4BB4CF9E7346C54682 /* Pods-whenDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDoTests.debug.xcconfig"; path = "Target Support Files/Pods-whenDoTests/Pods-whenDoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-whenDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo.release.xcconfig"; path = "Target Support Files/Pods-whenDo/Pods-whenDo.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-whenDo-whenDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.debug.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = whenDo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-whenDo-whenDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.release.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D0078376DC4418466CADFC1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = whenDo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo-whenDoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whenDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE66E5CE29D7FF91E4E500F /* Pods-whenDo-whenDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.release.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.release.xcconfig"; sourceTree = "<group>"; };
+		E651AD856635A8EE382A7FE4 /* Pods-whenDo-whenDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whenDo-whenDoTests.debug.xcconfig"; path = "Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -70,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11312450602AB4DE0EEB3885 /* libPods-whenDo-whenDoTests.a in Frameworks */,
+				EFFF6786B7B9072648BCFF49 /* libPods-whenDo-whenDoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +118,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF349B24C7DA3EB0307CA73 /* libPods-whenDo.a in Frameworks */,
+				E7F06DB73560F767203E812D /* libPods-whenDo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23FB26AA2C010E6000F752B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FB26AF2C010E6000F752B6 /* SwiftUI.framework in Frameworks */,
+				23FB26AE2C010E6000F752B6 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +154,8 @@
 		13B07FAE1A68108700A75B9A /* whenDo */ = {
 			isa = PBXGroup;
 			children = (
+				23FB26DD2C0183B900F752B6 /* SharedStorage.h */,
+				23FB26DA2C01838F00F752B6 /* SharedStorage.m */,
 				231E0D562BFE3336006E365C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -121,12 +172,26 @@
 			name = whenDo;
 			sourceTree = "<group>";
 		};
+		23FB26B02C010E6000F752B6 /* WhenDoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				23FB26B12C010E6000F752B6 /* WhenDoWidgetBundle.swift */,
+				23FB26B32C010E6000F752B6 /* WhenDoWidget.swift */,
+				23FB26B52C010E6000F752B6 /* AppIntent.swift */,
+				23FB26B72C010E6000F752B6 /* Assets.xcassets */,
+				23FB26B92C010E6100F752B6 /* Info.plist */,
+			);
+			path = WhenDoWidget;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				EA6A6728A0E10DA3F5FD83BB /* libPods-whenDo.a */,
-				A52A230B2827FA8BFE91ECC9 /* libPods-whenDo-whenDoTests.a */,
+				23FB25FE2C0086C200F752B6 /* WidgetKit.framework */,
+				23FB26002C0086C200F752B6 /* SwiftUI.framework */,
+				4A6F1878A3258A9DC857420F /* libPods-whenDo.a */,
+				2366094C7C1ECB6D1F3D7079 /* libPods-whenDo-whenDoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,13 +206,17 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				23FB26972C00F67D00F752B6 /* WhenDoWidgetExtension.entitlements */,
 				13B07FAE1A68108700A75B9A /* whenDo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* whenDoTests */,
+				23FB26B02C010E6000F752B6 /* WhenDoWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				AF34326344F44D1FA78DF857 /* Resources */,
+				23FB269C2C0104B200F752B6 /* WhenDoWidgetExtension-Bridging-Header.h */,
+				23FB26C12C01138900F752B6 /* WhenDoWidgetExtension-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -159,6 +228,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* whenDo.app */,
 				00E356EE1AD99517003FC87E /* whenDoTests.xctest */,
+				23FB26AD2C010E6000F752B6 /* WhenDoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,12 +246,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-whenDo.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-whenDo.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-whenDo-whenDoTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-whenDo-whenDoTests.release.xcconfig */,
-				56F51E4BB4CF9E7346C54682 /* Pods-whenDoTests.debug.xcconfig */,
-				07EB32336E3FF1C138C2D166 /* Pods-whenDoTests.release.xcconfig */,
+				2804342D1AD60A619122C760 /* Pods-whenDo.debug.xcconfig */,
+				15638124AB956FBC293F3E2E /* Pods-whenDo.release.xcconfig */,
+				E651AD856635A8EE382A7FE4 /* Pods-whenDo-whenDoTests.debug.xcconfig */,
+				9BE66E5CE29D7FF91E4E500F /* Pods-whenDo-whenDoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -193,12 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "whenDoTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				B43F0F1F5D43D99E1F65246D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				41F7E8BD69A99D6B7FB4A852 /* [CP] Embed Pods Frameworks */,
-				3E8F8DC589F186A7519DE30A /* [CP] Copy Pods Resources */,
+				2DE8226E3B7713C6F4347BCE /* [CP] Embed Pods Frameworks */,
+				C95CF6EA0AB53B3CE23C895A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,22 +282,41 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "whenDo" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				C57CFE7C12C0E6F562B1BB61 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				476F7304B1DFEF24AF251F00 /* [CP] Embed Pods Frameworks */,
-				1BA03B62C4B2DAF246415F0A /* [CP] Copy Pods Resources */,
+				23FB26112C0086C300F752B6 /* Embed Foundation Extensions */,
+				4A8486DFB33D5F110DE8C5E3 /* [CP] Embed Pods Frameworks */,
+				724A778E48A725209F01BC6C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				23FB26BB2C010E6100F752B6 /* PBXTargetDependency */,
 			);
 			name = whenDo;
 			productName = whenDo;
 			productReference = 13B07F961A680F5B00A75B9A /* whenDo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		23FB26AC2C010E6000F752B6 /* WhenDoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23FB26BD2C010E6100F752B6 /* Build configuration list for PBXNativeTarget "WhenDoWidgetExtension" */;
+			buildPhases = (
+				23FB26A92C010E6000F752B6 /* Sources */,
+				23FB26AA2C010E6000F752B6 /* Frameworks */,
+				23FB26AB2C010E6000F752B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhenDoWidgetExtension;
+			productName = WhenDoWidgetExtension;
+			productReference = 23FB26AD2C010E6000F752B6 /* WhenDoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -237,6 +324,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -246,10 +334,14 @@
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1530;
 					};
+					23FB26AC2C010E6000F752B6 = {
+						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "whenDo" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -264,6 +356,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* whenDo */,
 				00E356ED1AD99517003FC87E /* whenDoTests */,
+				23FB26AC2C010E6000F752B6 /* WhenDoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +384,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23FB26AB2C010E6000F752B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FB26B82C010E6000F752B6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -310,41 +411,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		1BA03B62C4B2DAF246415F0A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3E8F8DC589F186A7519DE30A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		41F7E8BD69A99D6B7FB4A852 /* [CP] Embed Pods Frameworks */ = {
+		2DE8226E3B7713C6F4347BCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,7 +428,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		476F7304B1DFEF24AF251F00 /* [CP] Embed Pods Frameworks */ = {
+		4A8486DFB33D5F110DE8C5E3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,7 +445,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		724A778E48A725209F01BC6C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo/Pods-whenDo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43F0F1F5D43D99E1F65246D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -400,7 +484,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		C57CFE7C12C0E6F562B1BB61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -422,6 +506,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C95CF6EA0AB53B3CE23C895A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whenDo-whenDoTests/Pods-whenDo-whenDoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -439,7 +540,18 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				23FB26DB2C01838F00F752B6 /* SharedStorage.m in Sources */,
 				2377C82A2BEF0F0C00FFE5A2 /* SwiftBridge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23FB26A92C010E6000F752B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FB26B42C010E6000F752B6 /* WhenDoWidget.swift in Sources */,
+				23FB26B22C010E6000F752B6 /* WhenDoWidgetBundle.swift in Sources */,
+				23FB26B62C010E6000F752B6 /* AppIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +562,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* whenDo */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		23FB26BB2C010E6100F752B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23FB26AC2C010E6000F752B6 /* WhenDoWidgetExtension */;
+			targetProxy = 23FB26BA2C010E6100F752B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -468,16 +585,17 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-whenDo-whenDoTests.debug.xcconfig */;
+			baseConfigurationReference = E651AD856635A8EE382A7FE4 /* Pods-whenDo-whenDoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BAW5XWB434;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = whenDoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,7 +606,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aglop.whendo-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whenDo.app/whenDo";
 			};
@@ -496,13 +614,14 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-whenDo-whenDoTests.release.xcconfig */;
+			baseConfigurationReference = 9BE66E5CE29D7FF91E4E500F /* Pods-whenDo-whenDoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = BAW5XWB434;
 				INFOPLIST_FILE = whenDoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +632,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aglop.whendo-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whenDo.app/whenDo";
 			};
@@ -521,12 +640,14 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-whenDo.debug.xcconfig */;
+			baseConfigurationReference = 2804342D1AD60A619122C760 /* Pods-whenDo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = whenDo/whenDo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797B6Y7LKS;
+				DEVELOPMENT_TEAM = BAW5XWB434;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = whenDo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "언제할래?";
@@ -541,7 +662,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aglop.when-do-client";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aglop.whendo;
 				PRODUCT_NAME = whenDo;
 				SWIFT_OBJC_BRIDGING_HEADER = "whenDo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -552,12 +673,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-whenDo.release.xcconfig */;
+			baseConfigurationReference = 15638124AB956FBC293F3E2E /* Pods-whenDo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = whenDo/whenDo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797B6Y7LKS;
+				DEVELOPMENT_TEAM = BAW5XWB434;
 				INFOPLIST_FILE = whenDo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "언제할래?";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -571,11 +694,102 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aglop.when-do-client";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aglop.whendo;
 				PRODUCT_NAME = whenDo;
 				SWIFT_OBJC_BRIDGING_HEADER = "whenDo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		23FB26BE2C010E6100F752B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = WhenDoWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BAW5XWB434;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WhenDoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WhenDoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aglop.whendo.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WhenDoWidgetExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23FB26BF2C010E6100F752B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = WhenDoWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BAW5XWB434;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WhenDoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WhenDoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aglop.whendo.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WhenDoWidgetExtension-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -630,7 +844,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -705,7 +919,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD = "";
 				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -753,6 +967,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23FB26BD2C010E6100F752B6 /* Build configuration list for PBXNativeTarget "WhenDoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23FB26BE2C010E6100F752B6 /* Debug */,
+				23FB26BF2C010E6100F752B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
