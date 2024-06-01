@@ -4,29 +4,12 @@ import dayjs from 'dayjs';
 
 import { useQuery } from 'react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useFetch from './useFetch.ts';
+import { supabase } from "../lib/supabase.ts";
 
 const USER_ID = 'userId';
 
-type TodayTodoListResponse = {
-  data: {
-    __v: number;
-    _id: string;
-    isAlarm: boolean,
-    alarmTime?: Date;
-    updatedAt: Date;
-    createdAt: Date;
-    startDate: Date;
-    isCompleted?: boolean;
-    title: string;
-    userId: string;
-    goalId?: string;
-  }[];
-}
-
 const useWidget = () => {
   const { SharedStorage } = NativeModules;
-  const { kyFetchWithUserId } = useFetch();
 
   const today = dayjs().format('YYYY-MM-DD');
   const {
@@ -40,26 +23,26 @@ const useWidget = () => {
         return {};
       }
 
-      try {
-        const result = await kyFetchWithUserId({
-          method: 'GET',
-          url: `/today-todo/${asyncStoragePersonId}/${String(today)}`
-        }) as TodayTodoListResponse;
+      const { data, error } = await supabase.from('todayTodo')
+        .select('*')
+        .eq('userId', asyncStoragePersonId)
+        .lte("startDate", today)
+        .gte("startDate", today);
 
-        if (!result || !result.data) return {};
-
-        return result.data.map(({
-          _id,
-          isCompleted,
-          title,
-        }) => ({
-          id: _id,
-          title,
-          isCompleted,
-        }));
-      } catch (error) {
+      if (error) {
         console.error(error);
+        return {};
       }
+
+      return data.map(({
+        id,
+        isCompleted,
+        title,
+      }) => ({
+        id,
+        title,
+        isCompleted,
+      }));
     }
   });
 

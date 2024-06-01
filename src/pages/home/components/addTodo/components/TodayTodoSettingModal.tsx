@@ -61,7 +61,7 @@ const TodayTodoSettingModal = ({
       return;
     }
 
-    await addTodayTodo({
+    await addTodayTodo.mutate({
       title: todo,
       isAlarm: alarmInfo.isAlarm,
       time: alarmInfo.isAlarm? alarmInfo.time : undefined,

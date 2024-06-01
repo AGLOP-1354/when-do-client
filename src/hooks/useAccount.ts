@@ -5,8 +5,8 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import uuid from 'react-native-uuid';
 
 import { accountAtom } from '../atoms/account.ts';
-import useFetch from './useFetch.ts';
 import { useNavigation } from '@react-navigation/native';
+import { supabase } from '../lib/supabase.ts';
 
 type AccountInfo = {
   socialId?: string;
@@ -16,35 +16,6 @@ type AccountInfo = {
   profileImage?: string;
 }
 
-type AccountInfoResponse = {
-  data: {
-    __v: number;
-    _id: string;
-    userId: string;
-    name: string;
-    email: string;
-    profileImage?: string;
-    updatedAt: Date;
-    createdAt: Date;
-    deletedAt?: Date;
-  }
-}
-
-type CreateAccountResponse = {
-  data: {
-    __v: number;
-    _id: string;
-    userId: string;
-    name: string;
-    email: string;
-    profileImage?: string;
-    description?: string;
-    updatedAt: Date;
-    createdAt: Date;
-    deletedAt?: Date;
-  }
-}
-
 const USER_ID = 'userId';
 
 const useAccount = () => {
@@ -52,30 +23,28 @@ const useAccount = () => {
   const setAccountInfo = useSetRecoilState(accountAtom);
   const { navigate } = useNavigation();
 
-  const { kyFetch } = useFetch();
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const createTempAccount = useMutation({
     mutationFn: async () => {
-      try {
-        const userId = uuid.v4() as string;
-        const result = await kyFetch({
-          method: 'POST',
-          url: '/account/create',
-          data: {
+      const userId = uuid.v4() as string;
+      const { data, error  } = await supabase.from('auth')
+        .insert([
+          {
             userId,
             name: 'guest',
             email: 'XXX@when-do.io',
             profileImage: undefined,
-          },
-        });
+          }
+        ]);
 
-        await AsyncStorage.setItem(USER_ID, userId);
-        return result;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      await AsyncStorage.setItem(USER_ID, userId);
+      return data;
     },
     onSuccess: () => {
       setIsLoggedIn(true);
@@ -87,25 +56,25 @@ const useAccount = () => {
 
   const createAccount = useMutation({
     mutationFn: async ({ socialId, name, email, profileImage }: AccountInfo) => {
-      try {
-        const userId = uuid.v4() as string;
-        const result = await kyFetch({
-          method: 'POST',
-          url: '/account/create',
-          data: {
+      const userId = uuid.v4() as string;
+      const { data, error } = await supabase.from('auth')
+        .insert([
+          {
             userId,
             socialId,
             name,
             email,
             profileImage,
-          },
-        }) as CreateAccountResponse;
+          }
+        ]);
 
-        await AsyncStorage.setItem(USER_ID, result.data.userId);
-        return result;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      await AsyncStorage.setItem(USER_ID, userId);
+      return data;
     },
     onSuccess: () => {
       setIsLoggedIn(true);
@@ -123,26 +92,23 @@ const useAccount = () => {
      description,
      profileImage,
    }: AccountInfo) => {
-      try {
-        const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
-        const result = await kyFetch({
-          method: 'POST',
-          url: '/account/update',
-          data: {
-            userId: asyncStoragePersonId,
-            socialId,
-            name,
-            email,
-            description,
-            profileImage,
-          },
-        }) as CreateAccountResponse;
+      const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
+      const { data, error } = await supabase.from('auth')
+        .update({
+          socialId,
+          name,
+          email,
+          description,
+          profileImage,
+        })
+        .eq('userId', asyncStoragePersonId);
 
-        await AsyncStorage.setItem(USER_ID, result.data.userId);
-        return result;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      return data;
     },
   });
 
@@ -157,21 +123,19 @@ const useAccount = () => {
         return {};
       }
 
-      try {
-        const result = await kyFetch({
-          method: 'GET',
-          url: `/account/get/${asyncStoragePersonId}`,
-        }) as AccountInfoResponse;
+      const { data, error  } = await supabase.from('auth')
+        .select('*').eq('userId', asyncStoragePersonId);
 
-        if (result && result.data) {
-          setAccountInfo(result.data);
-          setIsLoggedIn(true);
-        }
-
-        return result;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      if (!data || !data.length) return {};
+
+      setAccountInfo(data[0]);
+      setIsLoggedIn(true);
+      return data;
     },
   });
 
@@ -179,17 +143,10 @@ const useAccount = () => {
     mutationFn: async () => {
       const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
 
-      try {
-        await kyFetch({
-          method: 'POST',
-          url: '/account/logout',
-          data: {
-            userId: asyncStoragePersonId,
-          },
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      await supabase.from('account').update({
+        deletedAt: new Date(),
+      })
+        .eq('userId', asyncStoragePersonId);
     },
     onSuccess: async () => {
       await AsyncStorage.removeItem(USER_ID);

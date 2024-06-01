@@ -17,14 +17,13 @@ const useSplashScreen = () => {
   const { isFetchRoutineListLoading } = useRoutine();
   useWidget();
 
-  const getAuth = async () => {
-    const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
-    const auth = await supabase
-      .from('auth')
-      .select('*')
-      .eq('userId', asyncStoragePersonId);
-    console.log('auth', auth);
-  };
+  // const getAuth = async () => {
+  //   const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
+  //   const auth = await supabase
+  //     .from('auth')
+  //     .select('*')
+  //     .eq('userId', asyncStoragePersonId);
+  // };
 
   const initKakaoSdk = async () => {
     await initializeKakaoSDK('686b13e2d48f2fb15632463ac3e0055b');
@@ -33,7 +32,7 @@ const useSplashScreen = () => {
   useEffect(() => {
     if (isFetchTodayTodoListLoading || isFetchGoalListLoading || isFetchRoutineListLoading) return;
 
-    void getAuth();
+    // void getAuth();
     void initKakaoSdk();
     SplashScreen.hide();
   }, [isFetchTodayTodoListLoading, isFetchGoalListLoading, isFetchRoutineListLoading]);

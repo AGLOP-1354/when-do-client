@@ -1,21 +1,7 @@
 import { useMutation, useQuery } from 'react-query';
-import useFetch from './useFetch.ts';
-
-type RoutineSuccessInfo = {
-  data: {
-    __v: number;
-    _id: string;
-    routineId: string;
-    isSuccess: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-    deletedAt?: Date;
-  };
-};
+import { supabase } from '../lib/supabase.ts';
 
 const useRoutineSuccess = ({ routineId }: { routineId: string }) => {
-  const { kyFetch } = useFetch();
-
   const {
     data: routineSuccessInfo = {
       isSuccess: false,
@@ -26,62 +12,46 @@ const useRoutineSuccess = ({ routineId }: { routineId: string }) => {
   } = useQuery({
     queryKey: ['routine-success', routineId],
     queryFn: async () => {
-      try {
-        const result = await kyFetch({
-          method: 'GET',
-          url: `/routine-success/${routineId}`,
-        }) as RoutineSuccessInfo;
+      const { data, error } = await supabase.from('routineSuccess')
+        .select('*')
+        .eq('routineId', routineId);
 
-        if (!result || !result.data) {
-          return {
-            isSuccess: false,
-            _id: null,
-          };
-        }
-
-        return result.data;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return {};
       }
+
+      return data;
     },
     enabled: !!routineId,
   });
 
   const addRoutineSuccess = useMutation({
     mutationFn: async ({ isSuccess }: { isSuccess: boolean }) => {
-      try {
-        const result = await kyFetch({
-          method: 'POST',
-          url: '/routine-success/add',
-          data: {
-            routineId,
-            isSuccess,
-          },
-        });
+      const { data, error } = await supabase.from('routineSuccess').insert([
+        {
+          routineId,
+          isSuccess,
+        }
+      ]);
 
-        return result;
-      } catch (error) {
-        console.log(error);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      return data;
     },
   });
 
   const updateRoutineSuccess = useMutation({
     mutationFn: async ({ isSuccess }: { isSuccess: boolean }) => {
-      try {
-        const result = await kyFetch({
-          method: 'POST',
-          url: '/routine-success/update',
-          data: {
-            routineId,
-            isSuccess,
-          },
-        });
+      const result = await supabase.from('routineSuccess').update({
+        isSuccess,
+      })
+      .eq('routineId', routineId);
 
-        return result;
-      } catch (error) {
-        console.log(error);
-      }
+      return result;
     },
   });
 

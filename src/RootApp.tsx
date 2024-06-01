@@ -17,10 +17,10 @@ const RootApp = () => {
   const colors = useRecoilValue(themeColors);
   useSplashScreen();
   const { isFetchAccountInfoLoading } = useAccount();
-  const { _id } = useRecoilValue(accountAtom);
+  const { id } = useRecoilValue(accountAtom);
 
   if (isFetchAccountInfoLoading) return null;
-  const initialRouteName= _id ? 'home' : 'profile';
+  const initialRouteName= id ? 'home' : 'profile';
 
   return (
     <BottomTab.Navigator

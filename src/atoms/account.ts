@@ -1,7 +1,7 @@
 import {atom} from 'recoil';
 
 export type AccountType = {
-  _id: string;
+  id: string;
   userId: string;
   socialId?: string;
   name: string;
@@ -15,7 +15,7 @@ export type AccountType = {
 export const accountAtom = atom<AccountType>({
    key: 'account',
    default: {
-     _id: '',
+     id: '',
      socialId: undefined,
      userId: '',
      name: 'guest',

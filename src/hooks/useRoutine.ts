@@ -1,8 +1,9 @@
 import { useMutation, useQuery } from 'react-query';
-import useFetch from './useFetch.ts';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { routineAtom } from '../atoms/routine.ts';
 import { useSetRecoilState } from 'recoil';
+
+import { routineAtom } from '../atoms/routine.ts';
+import { supabase } from '../lib/supabase.ts';
 
 type AddRoutineParams = {
   title: string;
@@ -12,29 +13,11 @@ type AddRoutineParams = {
   goalId?: string,
   repeatDayOfWeek: string[],
 }
-type RoutineListResponse = {
-  data: {
-    __v: number;
-    _id: string;
-    createdAt: Date;
-    deletedAt?: Date;
-    endDate?: Date;
-    goalId?: string;
-    isAlarm: boolean;
-    alarmTime?: Date;
-    repeatDayOfWeek: string[],
-    startDate: Date;
-    title: string;
-    updatedAt: Date;
-    userId: string;
-  }[],
-};
 
 const USER_ID = 'userId';
 
 const useRoutine = () => {
   const setRoutineList = useSetRecoilState(routineAtom);
-  const { kyFetchWithUserId, kyFetch } = useFetch();
 
   const {
     data: routineListFromDatabase = [],
@@ -48,38 +31,20 @@ const useRoutine = () => {
         return {};
       }
 
-      try {
-        const result = await kyFetch({
-          method: 'GET',
-          url: `/routine/${asyncStoragePersonId}`
-        }) as RoutineListResponse;
+      const { data, error } = await supabase.from('routine')
+        .select('*')
+        .eq('userId', asyncStoragePersonId);
 
-        if (result && result.data) {
-          const newRoutineList = result.data.map(({
-            _id,
-            title,
-            isAlarm,
-            alarmTime,
-            startDate,
-            goalId,
-            repeatDayOfWeek,
-          }) => ({
-            id: _id,
-            title,
-            isAlarm,
-            alarmTime,
-            startDate,
-            goalId,
-            repeatDayOfWeek,
-          }));
-
-          setRoutineList(newRoutineList);
-        }
-
-        return result;
-      } catch (err) {
-        console.error(err);
+      if (error) {
+        console.error(error);
+        return;
       }
+
+      if (!data || !data.length) return {};
+
+      setRoutineList(data);
+
+      return data;
     }
   });
 
@@ -92,11 +57,15 @@ const useRoutine = () => {
      goalId,
      repeatDayOfWeek,
    }: AddRoutineParams) => {
-      try {
-        const result = await kyFetchWithUserId({
-          method: 'POST',
-          url: '/routine/add',
-          data: {
+      const asyncStoragePersonId = await AsyncStorage.getItem(USER_ID);
+      if (!asyncStoragePersonId) {
+        return {};
+      }
+
+      const { data, error } = await supabase.from('routine')
+        .insert([
+          {
+            userId: asyncStoragePersonId,
             title,
             isAlarm,
             alarmTime,
@@ -104,12 +73,14 @@ const useRoutine = () => {
             goalId,
             repeatDayOfWeek,
           },
-        });
+        ]);
 
-        return result;
-      } catch (error) {
+      if (error) {
         console.error(error);
+        return;
       }
+
+      return data;
     },
     onSuccess: async () => {
       await refetchRoutineList();

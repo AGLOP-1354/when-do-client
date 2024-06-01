@@ -12,10 +12,11 @@ import OAuthButton from './OAuthButton';
 import useAccount from '../../../../hooks/useAccount.ts';
 import { useRecoilValue } from 'recoil';
 import { accountAtom } from '../../../../atoms/account.ts';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const OAuthButtonList = () => {
     const {
-        _id,
+        id,
     } = useRecoilValue(accountAtom);
     GoogleSignin.configure({
         iosClientId: '2472078504-714cqgrcqbedpf26qe7fj6cba69ttt0t.apps.googleusercontent.com',
@@ -28,7 +29,7 @@ const OAuthButtonList = () => {
 
         const profile = await me();
 
-        if (_id) {
+        if (id) {
             updateAccount.mutate({
                 socialId: String(profile.id),
                 name: profile.nickname || '',
@@ -48,7 +49,7 @@ const OAuthButtonList = () => {
     const googleLoginRequest = async () => {
         await GoogleSignin.hasPlayServices();
         const userInfo = await GoogleSignin.signIn();
-        if (_id) {
+        if (id) {
             updateAccount.mutate({
                 socialId: userInfo.user.id,
                 name: userInfo.user.name || '',
@@ -75,9 +76,8 @@ const OAuthButtonList = () => {
           appleAuthRequestResponse.user,
         );
 
-        // use credentialState response to ensure the user is authenticated
         if (credentialState === appleAuth.State.AUTHORIZED) {
-            if (_id) {
+            if (id) {
                 updateAccount.mutate({
                     socialId: appleAuthRequestResponse.authorizationCode || '',
                     name: appleAuthRequestResponse.fullName ? `${appleAuthRequestResponse.fullName.familyName}}${appleAuthRequestResponse.fullName.givenName}` : '',

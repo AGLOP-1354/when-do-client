@@ -19,7 +19,7 @@ import TodoCountInfo from "./components/TodoCountInfo.tsx";
 
 const Profile = () => {
   const {
-    _id,
+    id,
     socialId,
     name,
     description,
@@ -39,9 +39,9 @@ const Profile = () => {
 
   useEffect(() => {
     if (isFetchAccountInfoLoading) return;
-    if (_id) setSignUpModalVisible(false);
-    if (!_id) setSignUpModalVisible(true);
-  }, [_id, isFetchAccountInfoLoading]);
+    if (id) setSignUpModalVisible(false);
+    if (!id) setSignUpModalVisible(true);
+  }, [id, isFetchAccountInfoLoading]);
 
   const pickImage = async() =>{
     // @ts-ignore
@@ -57,11 +57,11 @@ const Profile = () => {
   };
 
   const onCloseSignUpModal = useCallback(() => {
-    if (!_id) {
+    if (!id) {
       createTempAccount.mutate();
     }
     setTimeout(() => setSignUpModalVisible(false), 1000);
-  }, [_id]);
+  }, [id]);
 
   const onOpenProfileSettingModal = useCallback(() => setProfileSettingModalVisible(true), []);
   const onCloseProfileSettingModal = useCallback(() => setProfileSettingModalVisible(false), []);
